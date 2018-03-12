@@ -20,32 +20,40 @@ import Data.StrMap as StrMap
 import AWS.Request as Request
 import AWS.Request.Types as Types
 
-serviceName = "CostExplorer" :: String
-
 
 -- | <p>Retrieve cost and usage metrics for your account. You can specify which cost and usage-related metric, such as <code>BlendedCosts</code> or <code>UsageQuantity</code>, that you want the request to return. You can also filter and group your data by various dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range. See the <code>GetDimensionValues</code> action for a complete list of the valid dimensions. Master accounts in an organization have access to all member accounts.</p>
 getCostAndUsage :: forall eff. GetCostAndUsageRequest -> Aff (exception :: EXCEPTION | eff) GetCostAndUsageResponse
-getCostAndUsage = Request.request serviceName "getCostAndUsage" 
+getCostAndUsage = Request.request service method  where
+    service = Request.ServiceName "CostExplorer"
+    method = Request.MethodName "getCostAndUsage"
 
 
 -- | <p>You can use <code>GetDimensionValues</code> to retrieve all available filter values for a specific filter over a period of time. You can search the dimension values for an arbitrary string. </p>
 getDimensionValues :: forall eff. GetDimensionValuesRequest -> Aff (exception :: EXCEPTION | eff) GetDimensionValuesResponse
-getDimensionValues = Request.request serviceName "getDimensionValues" 
+getDimensionValues = Request.request service method  where
+    service = Request.ServiceName "CostExplorer"
+    method = Request.MethodName "getDimensionValues"
 
 
 -- | <p>Retrieve the reservation coverage for your account. An organization's master account has access to the associated member accounts. For any time period, you can filter data about reservation usage by the following dimensions. </p> <ul> <li> <p>AZ</p> </li> <li> <p>INSTANCE_TYPE</p> </li> <li> <p>LINKED_ACCOUNT</p> </li> <li> <p>PLATFORM</p> </li> <li> <p>REGION</p> </li> <li> <p>TENANCY</p> </li> </ul> <p>To determine valid values for a dimension, use the <code>GetDimensionValues</code> operation. </p>
 getReservationCoverage :: forall eff. GetReservationCoverageRequest -> Aff (exception :: EXCEPTION | eff) GetReservationCoverageResponse
-getReservationCoverage = Request.request serviceName "getReservationCoverage" 
+getReservationCoverage = Request.request service method  where
+    service = Request.ServiceName "CostExplorer"
+    method = Request.MethodName "getReservationCoverage"
 
 
 -- | <p>You can retrieve the Reservation utilization for your account. Master accounts in an organization have access to their associated member accounts. You can filter data by dimensions in a time period. You can use <code>GetDimensionValues</code> to determine the possible dimension values. Currently, you can group only by <code>SUBSCRIPTION_ID</code>. </p>
 getReservationUtilization :: forall eff. GetReservationUtilizationRequest -> Aff (exception :: EXCEPTION | eff) GetReservationUtilizationResponse
-getReservationUtilization = Request.request serviceName "getReservationUtilization" 
+getReservationUtilization = Request.request service method  where
+    service = Request.ServiceName "CostExplorer"
+    method = Request.MethodName "getReservationUtilization"
 
 
 -- | <p>You can query for available tag keys and tag values for a specified period. You can search the tag values for an arbitrary string. </p>
 getTags :: forall eff. GetTagsRequest -> Aff (exception :: EXCEPTION | eff) GetTagsResponse
-getTags = Request.request serviceName "getTags" 
+getTags = Request.request service method  where
+    service = Request.ServiceName "CostExplorer"
+    method = Request.MethodName "getTags"
 
 
 newtype AttributeType = AttributeType String
