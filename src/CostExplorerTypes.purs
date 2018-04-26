@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -47,7 +46,7 @@ instance encodeAttributes :: Encode Attributes where encode = genericEncode opti
 
 -- | <p>The requested report expired. Update the date interval and try again.</p>
 newtype BillExpirationException = BillExpirationException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeBillExpirationException :: Newtype BillExpirationException _
 derive instance repGenericBillExpirationException :: Generic BillExpirationException _
@@ -57,12 +56,12 @@ instance encodeBillExpirationException :: Encode BillExpirationException where e
 
 -- | Constructs BillExpirationException from required parameters
 newBillExpirationException :: BillExpirationException
-newBillExpirationException  = BillExpirationException { "Message": (NullOrUndefined Nothing) }
+newBillExpirationException  = BillExpirationException { "Message": Nothing }
 
 -- | Constructs BillExpirationException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBillExpirationException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> BillExpirationException
-newBillExpirationException'  customize = (BillExpirationException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newBillExpirationException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> BillExpirationException
+newBillExpirationException'  customize = (BillExpirationException <<< customize) { "Message": Nothing }
 
 
 
@@ -77,7 +76,7 @@ instance encodeContext :: Encode Context where encode = genericEncode options
 
 -- | <p>The amount of instance usage that a reservation covered.</p>
 newtype Coverage = Coverage 
-  { "CoverageHours" :: NullOrUndefined (CoverageHours)
+  { "CoverageHours" :: Maybe (CoverageHours)
   }
 derive instance newtypeCoverage :: Newtype Coverage _
 derive instance repGenericCoverage :: Generic Coverage _
@@ -87,20 +86,20 @@ instance encodeCoverage :: Encode Coverage where encode = genericEncode options
 
 -- | Constructs Coverage from required parameters
 newCoverage :: Coverage
-newCoverage  = Coverage { "CoverageHours": (NullOrUndefined Nothing) }
+newCoverage  = Coverage { "CoverageHours": Nothing }
 
 -- | Constructs Coverage's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCoverage' :: ( { "CoverageHours" :: NullOrUndefined (CoverageHours) } -> {"CoverageHours" :: NullOrUndefined (CoverageHours) } ) -> Coverage
-newCoverage'  customize = (Coverage <<< customize) { "CoverageHours": (NullOrUndefined Nothing) }
+newCoverage' :: ( { "CoverageHours" :: Maybe (CoverageHours) } -> {"CoverageHours" :: Maybe (CoverageHours) } ) -> Coverage
+newCoverage'  customize = (Coverage <<< customize) { "CoverageHours": Nothing }
 
 
 
 -- | <p>Reservation coverage, in hours.</p>
 newtype CoverageByTime = CoverageByTime 
-  { "TimePeriod" :: NullOrUndefined (DateInterval)
-  , "Groups" :: NullOrUndefined (ReservationCoverageGroups)
-  , "Total" :: NullOrUndefined (Coverage)
+  { "TimePeriod" :: Maybe (DateInterval)
+  , "Groups" :: Maybe (ReservationCoverageGroups)
+  , "Total" :: Maybe (Coverage)
   }
 derive instance newtypeCoverageByTime :: Newtype CoverageByTime _
 derive instance repGenericCoverageByTime :: Generic CoverageByTime _
@@ -110,21 +109,21 @@ instance encodeCoverageByTime :: Encode CoverageByTime where encode = genericEnc
 
 -- | Constructs CoverageByTime from required parameters
 newCoverageByTime :: CoverageByTime
-newCoverageByTime  = CoverageByTime { "Groups": (NullOrUndefined Nothing), "TimePeriod": (NullOrUndefined Nothing), "Total": (NullOrUndefined Nothing) }
+newCoverageByTime  = CoverageByTime { "Groups": Nothing, "TimePeriod": Nothing, "Total": Nothing }
 
 -- | Constructs CoverageByTime's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCoverageByTime' :: ( { "TimePeriod" :: NullOrUndefined (DateInterval) , "Groups" :: NullOrUndefined (ReservationCoverageGroups) , "Total" :: NullOrUndefined (Coverage) } -> {"TimePeriod" :: NullOrUndefined (DateInterval) , "Groups" :: NullOrUndefined (ReservationCoverageGroups) , "Total" :: NullOrUndefined (Coverage) } ) -> CoverageByTime
-newCoverageByTime'  customize = (CoverageByTime <<< customize) { "Groups": (NullOrUndefined Nothing), "TimePeriod": (NullOrUndefined Nothing), "Total": (NullOrUndefined Nothing) }
+newCoverageByTime' :: ( { "TimePeriod" :: Maybe (DateInterval) , "Groups" :: Maybe (ReservationCoverageGroups) , "Total" :: Maybe (Coverage) } -> {"TimePeriod" :: Maybe (DateInterval) , "Groups" :: Maybe (ReservationCoverageGroups) , "Total" :: Maybe (Coverage) } ) -> CoverageByTime
+newCoverageByTime'  customize = (CoverageByTime <<< customize) { "Groups": Nothing, "TimePeriod": Nothing, "Total": Nothing }
 
 
 
 -- | <p>How long a running instance either used a reservation or was On-Demand.</p>
 newtype CoverageHours = CoverageHours 
-  { "OnDemandHours" :: NullOrUndefined (OnDemandHours)
-  , "ReservedHours" :: NullOrUndefined (ReservedHours)
-  , "TotalRunningHours" :: NullOrUndefined (TotalRunningHours)
-  , "CoverageHoursPercentage" :: NullOrUndefined (CoverageHoursPercentage)
+  { "OnDemandHours" :: Maybe (OnDemandHours)
+  , "ReservedHours" :: Maybe (ReservedHours)
+  , "TotalRunningHours" :: Maybe (TotalRunningHours)
+  , "CoverageHoursPercentage" :: Maybe (CoverageHoursPercentage)
   }
 derive instance newtypeCoverageHours :: Newtype CoverageHours _
 derive instance repGenericCoverageHours :: Generic CoverageHours _
@@ -134,12 +133,12 @@ instance encodeCoverageHours :: Encode CoverageHours where encode = genericEncod
 
 -- | Constructs CoverageHours from required parameters
 newCoverageHours :: CoverageHours
-newCoverageHours  = CoverageHours { "CoverageHoursPercentage": (NullOrUndefined Nothing), "OnDemandHours": (NullOrUndefined Nothing), "ReservedHours": (NullOrUndefined Nothing), "TotalRunningHours": (NullOrUndefined Nothing) }
+newCoverageHours  = CoverageHours { "CoverageHoursPercentage": Nothing, "OnDemandHours": Nothing, "ReservedHours": Nothing, "TotalRunningHours": Nothing }
 
 -- | Constructs CoverageHours's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCoverageHours' :: ( { "OnDemandHours" :: NullOrUndefined (OnDemandHours) , "ReservedHours" :: NullOrUndefined (ReservedHours) , "TotalRunningHours" :: NullOrUndefined (TotalRunningHours) , "CoverageHoursPercentage" :: NullOrUndefined (CoverageHoursPercentage) } -> {"OnDemandHours" :: NullOrUndefined (OnDemandHours) , "ReservedHours" :: NullOrUndefined (ReservedHours) , "TotalRunningHours" :: NullOrUndefined (TotalRunningHours) , "CoverageHoursPercentage" :: NullOrUndefined (CoverageHoursPercentage) } ) -> CoverageHours
-newCoverageHours'  customize = (CoverageHours <<< customize) { "CoverageHoursPercentage": (NullOrUndefined Nothing), "OnDemandHours": (NullOrUndefined Nothing), "ReservedHours": (NullOrUndefined Nothing), "TotalRunningHours": (NullOrUndefined Nothing) }
+newCoverageHours' :: ( { "OnDemandHours" :: Maybe (OnDemandHours) , "ReservedHours" :: Maybe (ReservedHours) , "TotalRunningHours" :: Maybe (TotalRunningHours) , "CoverageHoursPercentage" :: Maybe (CoverageHoursPercentage) } -> {"OnDemandHours" :: Maybe (OnDemandHours) , "ReservedHours" :: Maybe (ReservedHours) , "TotalRunningHours" :: Maybe (TotalRunningHours) , "CoverageHoursPercentage" :: Maybe (CoverageHoursPercentage) } ) -> CoverageHours
+newCoverageHours'  customize = (CoverageHours <<< customize) { "CoverageHoursPercentage": Nothing, "OnDemandHours": Nothing, "ReservedHours": Nothing, "TotalRunningHours": Nothing }
 
 
 
@@ -163,7 +162,7 @@ instance encodeCoveragesByTime :: Encode CoveragesByTime where encode = genericE
 
 -- | <p>The requested data is unavailable.</p>
 newtype DataUnavailableException = DataUnavailableException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeDataUnavailableException :: Newtype DataUnavailableException _
 derive instance repGenericDataUnavailableException :: Generic DataUnavailableException _
@@ -173,12 +172,12 @@ instance encodeDataUnavailableException :: Encode DataUnavailableException where
 
 -- | Constructs DataUnavailableException from required parameters
 newDataUnavailableException :: DataUnavailableException
-newDataUnavailableException  = DataUnavailableException { "Message": (NullOrUndefined Nothing) }
+newDataUnavailableException  = DataUnavailableException { "Message": Nothing }
 
 -- | Constructs DataUnavailableException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDataUnavailableException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> DataUnavailableException
-newDataUnavailableException'  customize = (DataUnavailableException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newDataUnavailableException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> DataUnavailableException
+newDataUnavailableException'  customize = (DataUnavailableException <<< customize) { "Message": Nothing }
 
 
 
@@ -215,8 +214,8 @@ instance encodeDimension :: Encode Dimension where encode = genericEncode option
 
 -- | <p>The metadata that you can use to filter and group your results. You can use <code>GetDimensionValues</code> to find specific values.</p>
 newtype DimensionValues = DimensionValues 
-  { "Key" :: NullOrUndefined (Dimension)
-  , "Values" :: NullOrUndefined (Values)
+  { "Key" :: Maybe (Dimension)
+  , "Values" :: Maybe (Values)
   }
 derive instance newtypeDimensionValues :: Newtype DimensionValues _
 derive instance repGenericDimensionValues :: Generic DimensionValues _
@@ -226,19 +225,19 @@ instance encodeDimensionValues :: Encode DimensionValues where encode = genericE
 
 -- | Constructs DimensionValues from required parameters
 newDimensionValues :: DimensionValues
-newDimensionValues  = DimensionValues { "Key": (NullOrUndefined Nothing), "Values": (NullOrUndefined Nothing) }
+newDimensionValues  = DimensionValues { "Key": Nothing, "Values": Nothing }
 
 -- | Constructs DimensionValues's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDimensionValues' :: ( { "Key" :: NullOrUndefined (Dimension) , "Values" :: NullOrUndefined (Values) } -> {"Key" :: NullOrUndefined (Dimension) , "Values" :: NullOrUndefined (Values) } ) -> DimensionValues
-newDimensionValues'  customize = (DimensionValues <<< customize) { "Key": (NullOrUndefined Nothing), "Values": (NullOrUndefined Nothing) }
+newDimensionValues' :: ( { "Key" :: Maybe (Dimension) , "Values" :: Maybe (Values) } -> {"Key" :: Maybe (Dimension) , "Values" :: Maybe (Values) } ) -> DimensionValues
+newDimensionValues'  customize = (DimensionValues <<< customize) { "Key": Nothing, "Values": Nothing }
 
 
 
 -- | <p>The metadata of a specific type that you can use to filter and group your results. You can use <code>GetDimensionValues</code> to find specific values.</p>
 newtype DimensionValuesWithAttributes = DimensionValuesWithAttributes 
-  { "Value" :: NullOrUndefined (Value)
-  , "Attributes" :: NullOrUndefined (Attributes)
+  { "Value" :: Maybe (Value)
+  , "Attributes" :: Maybe (Attributes)
   }
 derive instance newtypeDimensionValuesWithAttributes :: Newtype DimensionValuesWithAttributes _
 derive instance repGenericDimensionValuesWithAttributes :: Generic DimensionValuesWithAttributes _
@@ -248,12 +247,12 @@ instance encodeDimensionValuesWithAttributes :: Encode DimensionValuesWithAttrib
 
 -- | Constructs DimensionValuesWithAttributes from required parameters
 newDimensionValuesWithAttributes :: DimensionValuesWithAttributes
-newDimensionValuesWithAttributes  = DimensionValuesWithAttributes { "Attributes": (NullOrUndefined Nothing), "Value": (NullOrUndefined Nothing) }
+newDimensionValuesWithAttributes  = DimensionValuesWithAttributes { "Attributes": Nothing, "Value": Nothing }
 
 -- | Constructs DimensionValuesWithAttributes's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDimensionValuesWithAttributes' :: ( { "Value" :: NullOrUndefined (Value) , "Attributes" :: NullOrUndefined (Attributes) } -> {"Value" :: NullOrUndefined (Value) , "Attributes" :: NullOrUndefined (Attributes) } ) -> DimensionValuesWithAttributes
-newDimensionValuesWithAttributes'  customize = (DimensionValuesWithAttributes <<< customize) { "Attributes": (NullOrUndefined Nothing), "Value": (NullOrUndefined Nothing) }
+newDimensionValuesWithAttributes' :: ( { "Value" :: Maybe (Value) , "Attributes" :: Maybe (Attributes) } -> {"Value" :: Maybe (Value) , "Attributes" :: Maybe (Attributes) } ) -> DimensionValuesWithAttributes
+newDimensionValuesWithAttributes'  customize = (DimensionValuesWithAttributes <<< customize) { "Attributes": Nothing, "Value": Nothing }
 
 
 
@@ -295,8 +294,8 @@ instance encodeEstimated :: Encode Estimated where encode = genericEncode option
 
 -- | <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p> <ul> <li> <p>Simple dimension values - You can set the dimension name and values for the filters that you plan to use. For example, you can filter for <code>INSTANCE_TYPE==m4.xlarge OR INSTANCE_TYPE==c4.large</code>. The <code>Expression</code> for that looks like this.</p> <p> <code>{ "Dimensions": { "Key": "INSTANCE_TYPE", "Values": [ "m4.xlarge", “c4.large” ] } }</code> </p> <p>The list of dimension values are OR'd together to retrieve cost or usage data. You can create <code>Expression</code> and <code>DimensionValues</code> objects using either <code>with*</code> methods or <code>set*</code> methods in multiple lines. </p> </li> <li> <p>Compound dimension values with logical operations - You can use multiple <code>Expression</code> types and the logical operators <code>AND/OR/NOT</code> to create a list of one or more <code>Expression</code> objects. This allows you to filter on more advanced options. For example, you can filter on <code>((INSTANCE_TYPE == m4.large OR INSTANCE_TYPE == m3.large) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer)</code>. The <code>Expression</code> for that looks like this.</p> <p> <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "INSTANCE_TYPE", "Values": [ "m4.x.large", "c4.large" ] }}, {"Tag": { "Key": "TagName", "Values": ["Value1"] } } ]}, {"Not": {"dimensions": { "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] } </code> </p> <note> <p>Because each <code>Expression</code> can have only one operator, the service returns an error if more than one is specified. The following example shows an Expression object that will create an error.</p> </note> <p> <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE", "Values": [ "DataTransfer" ] } } </code> </p> </li> </ul>
 newtype Expression = Expression 
-  { "Dimensions" :: NullOrUndefined (DimensionValues)
-  , "Tags" :: NullOrUndefined (TagValues)
+  { "Dimensions" :: Maybe (DimensionValues)
+  , "Tags" :: Maybe (TagValues)
   }
 derive instance newtypeExpression :: Newtype Expression _
 derive instance repGenericExpression :: Generic Expression _
@@ -306,12 +305,12 @@ instance encodeExpression :: Encode Expression where encode = genericEncode opti
 
 -- | Constructs Expression from required parameters
 newExpression :: Expression
-newExpression  = Expression { "Dimensions": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newExpression  = Expression { "Dimensions": Nothing, "Tags": Nothing }
 
 -- | Constructs Expression's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newExpression' :: ( { "Dimensions" :: NullOrUndefined (DimensionValues) , "Tags" :: NullOrUndefined (TagValues) } -> {"Dimensions" :: NullOrUndefined (DimensionValues) , "Tags" :: NullOrUndefined (TagValues) } ) -> Expression
-newExpression'  customize = (Expression <<< customize) { "Dimensions": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newExpression' :: ( { "Dimensions" :: Maybe (DimensionValues) , "Tags" :: Maybe (TagValues) } -> {"Dimensions" :: Maybe (DimensionValues) , "Tags" :: Maybe (TagValues) } ) -> Expression
+newExpression'  customize = (Expression <<< customize) { "Dimensions": Nothing, "Tags": Nothing }
 
 
 
@@ -325,12 +324,12 @@ instance encodeExpressions :: Encode Expressions where encode = genericEncode op
 
 
 newtype GetCostAndUsageRequest = GetCostAndUsageRequest 
-  { "TimePeriod" :: NullOrUndefined (DateInterval)
-  , "Granularity" :: NullOrUndefined (Granularity)
-  , "Filter" :: NullOrUndefined (Expression)
-  , "Metrics" :: NullOrUndefined (MetricNames)
-  , "GroupBy" :: NullOrUndefined (GroupDefinitions)
-  , "NextPageToken" :: NullOrUndefined (NextPageToken)
+  { "TimePeriod" :: Maybe (DateInterval)
+  , "Granularity" :: Maybe (Granularity)
+  , "Filter" :: Maybe (Expression)
+  , "Metrics" :: Maybe (MetricNames)
+  , "GroupBy" :: Maybe (GroupDefinitions)
+  , "NextPageToken" :: Maybe (NextPageToken)
   }
 derive instance newtypeGetCostAndUsageRequest :: Newtype GetCostAndUsageRequest _
 derive instance repGenericGetCostAndUsageRequest :: Generic GetCostAndUsageRequest _
@@ -340,19 +339,19 @@ instance encodeGetCostAndUsageRequest :: Encode GetCostAndUsageRequest where enc
 
 -- | Constructs GetCostAndUsageRequest from required parameters
 newGetCostAndUsageRequest :: GetCostAndUsageRequest
-newGetCostAndUsageRequest  = GetCostAndUsageRequest { "Filter": (NullOrUndefined Nothing), "Granularity": (NullOrUndefined Nothing), "GroupBy": (NullOrUndefined Nothing), "Metrics": (NullOrUndefined Nothing), "NextPageToken": (NullOrUndefined Nothing), "TimePeriod": (NullOrUndefined Nothing) }
+newGetCostAndUsageRequest  = GetCostAndUsageRequest { "Filter": Nothing, "Granularity": Nothing, "GroupBy": Nothing, "Metrics": Nothing, "NextPageToken": Nothing, "TimePeriod": Nothing }
 
 -- | Constructs GetCostAndUsageRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetCostAndUsageRequest' :: ( { "TimePeriod" :: NullOrUndefined (DateInterval) , "Granularity" :: NullOrUndefined (Granularity) , "Filter" :: NullOrUndefined (Expression) , "Metrics" :: NullOrUndefined (MetricNames) , "GroupBy" :: NullOrUndefined (GroupDefinitions) , "NextPageToken" :: NullOrUndefined (NextPageToken) } -> {"TimePeriod" :: NullOrUndefined (DateInterval) , "Granularity" :: NullOrUndefined (Granularity) , "Filter" :: NullOrUndefined (Expression) , "Metrics" :: NullOrUndefined (MetricNames) , "GroupBy" :: NullOrUndefined (GroupDefinitions) , "NextPageToken" :: NullOrUndefined (NextPageToken) } ) -> GetCostAndUsageRequest
-newGetCostAndUsageRequest'  customize = (GetCostAndUsageRequest <<< customize) { "Filter": (NullOrUndefined Nothing), "Granularity": (NullOrUndefined Nothing), "GroupBy": (NullOrUndefined Nothing), "Metrics": (NullOrUndefined Nothing), "NextPageToken": (NullOrUndefined Nothing), "TimePeriod": (NullOrUndefined Nothing) }
+newGetCostAndUsageRequest' :: ( { "TimePeriod" :: Maybe (DateInterval) , "Granularity" :: Maybe (Granularity) , "Filter" :: Maybe (Expression) , "Metrics" :: Maybe (MetricNames) , "GroupBy" :: Maybe (GroupDefinitions) , "NextPageToken" :: Maybe (NextPageToken) } -> {"TimePeriod" :: Maybe (DateInterval) , "Granularity" :: Maybe (Granularity) , "Filter" :: Maybe (Expression) , "Metrics" :: Maybe (MetricNames) , "GroupBy" :: Maybe (GroupDefinitions) , "NextPageToken" :: Maybe (NextPageToken) } ) -> GetCostAndUsageRequest
+newGetCostAndUsageRequest'  customize = (GetCostAndUsageRequest <<< customize) { "Filter": Nothing, "Granularity": Nothing, "GroupBy": Nothing, "Metrics": Nothing, "NextPageToken": Nothing, "TimePeriod": Nothing }
 
 
 
 newtype GetCostAndUsageResponse = GetCostAndUsageResponse 
-  { "NextPageToken" :: NullOrUndefined (NextPageToken)
-  , "GroupDefinitions" :: NullOrUndefined (GroupDefinitions)
-  , "ResultsByTime" :: NullOrUndefined (ResultsByTime)
+  { "NextPageToken" :: Maybe (NextPageToken)
+  , "GroupDefinitions" :: Maybe (GroupDefinitions)
+  , "ResultsByTime" :: Maybe (ResultsByTime)
   }
 derive instance newtypeGetCostAndUsageResponse :: Newtype GetCostAndUsageResponse _
 derive instance repGenericGetCostAndUsageResponse :: Generic GetCostAndUsageResponse _
@@ -362,21 +361,21 @@ instance encodeGetCostAndUsageResponse :: Encode GetCostAndUsageResponse where e
 
 -- | Constructs GetCostAndUsageResponse from required parameters
 newGetCostAndUsageResponse :: GetCostAndUsageResponse
-newGetCostAndUsageResponse  = GetCostAndUsageResponse { "GroupDefinitions": (NullOrUndefined Nothing), "NextPageToken": (NullOrUndefined Nothing), "ResultsByTime": (NullOrUndefined Nothing) }
+newGetCostAndUsageResponse  = GetCostAndUsageResponse { "GroupDefinitions": Nothing, "NextPageToken": Nothing, "ResultsByTime": Nothing }
 
 -- | Constructs GetCostAndUsageResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetCostAndUsageResponse' :: ( { "NextPageToken" :: NullOrUndefined (NextPageToken) , "GroupDefinitions" :: NullOrUndefined (GroupDefinitions) , "ResultsByTime" :: NullOrUndefined (ResultsByTime) } -> {"NextPageToken" :: NullOrUndefined (NextPageToken) , "GroupDefinitions" :: NullOrUndefined (GroupDefinitions) , "ResultsByTime" :: NullOrUndefined (ResultsByTime) } ) -> GetCostAndUsageResponse
-newGetCostAndUsageResponse'  customize = (GetCostAndUsageResponse <<< customize) { "GroupDefinitions": (NullOrUndefined Nothing), "NextPageToken": (NullOrUndefined Nothing), "ResultsByTime": (NullOrUndefined Nothing) }
+newGetCostAndUsageResponse' :: ( { "NextPageToken" :: Maybe (NextPageToken) , "GroupDefinitions" :: Maybe (GroupDefinitions) , "ResultsByTime" :: Maybe (ResultsByTime) } -> {"NextPageToken" :: Maybe (NextPageToken) , "GroupDefinitions" :: Maybe (GroupDefinitions) , "ResultsByTime" :: Maybe (ResultsByTime) } ) -> GetCostAndUsageResponse
+newGetCostAndUsageResponse'  customize = (GetCostAndUsageResponse <<< customize) { "GroupDefinitions": Nothing, "NextPageToken": Nothing, "ResultsByTime": Nothing }
 
 
 
 newtype GetDimensionValuesRequest = GetDimensionValuesRequest 
-  { "SearchString" :: NullOrUndefined (SearchString)
+  { "SearchString" :: Maybe (SearchString)
   , "TimePeriod" :: (DateInterval)
   , "Dimension" :: (Dimension)
-  , "Context" :: NullOrUndefined (Context)
-  , "NextPageToken" :: NullOrUndefined (NextPageToken)
+  , "Context" :: Maybe (Context)
+  , "NextPageToken" :: Maybe (NextPageToken)
   }
 derive instance newtypeGetDimensionValuesRequest :: Newtype GetDimensionValuesRequest _
 derive instance repGenericGetDimensionValuesRequest :: Generic GetDimensionValuesRequest _
@@ -386,12 +385,12 @@ instance encodeGetDimensionValuesRequest :: Encode GetDimensionValuesRequest whe
 
 -- | Constructs GetDimensionValuesRequest from required parameters
 newGetDimensionValuesRequest :: Dimension -> DateInterval -> GetDimensionValuesRequest
-newGetDimensionValuesRequest _Dimension _TimePeriod = GetDimensionValuesRequest { "Dimension": _Dimension, "TimePeriod": _TimePeriod, "Context": (NullOrUndefined Nothing), "NextPageToken": (NullOrUndefined Nothing), "SearchString": (NullOrUndefined Nothing) }
+newGetDimensionValuesRequest _Dimension _TimePeriod = GetDimensionValuesRequest { "Dimension": _Dimension, "TimePeriod": _TimePeriod, "Context": Nothing, "NextPageToken": Nothing, "SearchString": Nothing }
 
 -- | Constructs GetDimensionValuesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetDimensionValuesRequest' :: Dimension -> DateInterval -> ( { "SearchString" :: NullOrUndefined (SearchString) , "TimePeriod" :: (DateInterval) , "Dimension" :: (Dimension) , "Context" :: NullOrUndefined (Context) , "NextPageToken" :: NullOrUndefined (NextPageToken) } -> {"SearchString" :: NullOrUndefined (SearchString) , "TimePeriod" :: (DateInterval) , "Dimension" :: (Dimension) , "Context" :: NullOrUndefined (Context) , "NextPageToken" :: NullOrUndefined (NextPageToken) } ) -> GetDimensionValuesRequest
-newGetDimensionValuesRequest' _Dimension _TimePeriod customize = (GetDimensionValuesRequest <<< customize) { "Dimension": _Dimension, "TimePeriod": _TimePeriod, "Context": (NullOrUndefined Nothing), "NextPageToken": (NullOrUndefined Nothing), "SearchString": (NullOrUndefined Nothing) }
+newGetDimensionValuesRequest' :: Dimension -> DateInterval -> ( { "SearchString" :: Maybe (SearchString) , "TimePeriod" :: (DateInterval) , "Dimension" :: (Dimension) , "Context" :: Maybe (Context) , "NextPageToken" :: Maybe (NextPageToken) } -> {"SearchString" :: Maybe (SearchString) , "TimePeriod" :: (DateInterval) , "Dimension" :: (Dimension) , "Context" :: Maybe (Context) , "NextPageToken" :: Maybe (NextPageToken) } ) -> GetDimensionValuesRequest
+newGetDimensionValuesRequest' _Dimension _TimePeriod customize = (GetDimensionValuesRequest <<< customize) { "Dimension": _Dimension, "TimePeriod": _TimePeriod, "Context": Nothing, "NextPageToken": Nothing, "SearchString": Nothing }
 
 
 
@@ -399,7 +398,7 @@ newtype GetDimensionValuesResponse = GetDimensionValuesResponse
   { "DimensionValues" :: (DimensionValuesWithAttributesList)
   , "ReturnSize" :: (PageSize)
   , "TotalSize" :: (PageSize)
-  , "NextPageToken" :: NullOrUndefined (NextPageToken)
+  , "NextPageToken" :: Maybe (NextPageToken)
   }
 derive instance newtypeGetDimensionValuesResponse :: Newtype GetDimensionValuesResponse _
 derive instance repGenericGetDimensionValuesResponse :: Generic GetDimensionValuesResponse _
@@ -409,22 +408,22 @@ instance encodeGetDimensionValuesResponse :: Encode GetDimensionValuesResponse w
 
 -- | Constructs GetDimensionValuesResponse from required parameters
 newGetDimensionValuesResponse :: DimensionValuesWithAttributesList -> PageSize -> PageSize -> GetDimensionValuesResponse
-newGetDimensionValuesResponse _DimensionValues _ReturnSize _TotalSize = GetDimensionValuesResponse { "DimensionValues": _DimensionValues, "ReturnSize": _ReturnSize, "TotalSize": _TotalSize, "NextPageToken": (NullOrUndefined Nothing) }
+newGetDimensionValuesResponse _DimensionValues _ReturnSize _TotalSize = GetDimensionValuesResponse { "DimensionValues": _DimensionValues, "ReturnSize": _ReturnSize, "TotalSize": _TotalSize, "NextPageToken": Nothing }
 
 -- | Constructs GetDimensionValuesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetDimensionValuesResponse' :: DimensionValuesWithAttributesList -> PageSize -> PageSize -> ( { "DimensionValues" :: (DimensionValuesWithAttributesList) , "ReturnSize" :: (PageSize) , "TotalSize" :: (PageSize) , "NextPageToken" :: NullOrUndefined (NextPageToken) } -> {"DimensionValues" :: (DimensionValuesWithAttributesList) , "ReturnSize" :: (PageSize) , "TotalSize" :: (PageSize) , "NextPageToken" :: NullOrUndefined (NextPageToken) } ) -> GetDimensionValuesResponse
-newGetDimensionValuesResponse' _DimensionValues _ReturnSize _TotalSize customize = (GetDimensionValuesResponse <<< customize) { "DimensionValues": _DimensionValues, "ReturnSize": _ReturnSize, "TotalSize": _TotalSize, "NextPageToken": (NullOrUndefined Nothing) }
+newGetDimensionValuesResponse' :: DimensionValuesWithAttributesList -> PageSize -> PageSize -> ( { "DimensionValues" :: (DimensionValuesWithAttributesList) , "ReturnSize" :: (PageSize) , "TotalSize" :: (PageSize) , "NextPageToken" :: Maybe (NextPageToken) } -> {"DimensionValues" :: (DimensionValuesWithAttributesList) , "ReturnSize" :: (PageSize) , "TotalSize" :: (PageSize) , "NextPageToken" :: Maybe (NextPageToken) } ) -> GetDimensionValuesResponse
+newGetDimensionValuesResponse' _DimensionValues _ReturnSize _TotalSize customize = (GetDimensionValuesResponse <<< customize) { "DimensionValues": _DimensionValues, "ReturnSize": _ReturnSize, "TotalSize": _TotalSize, "NextPageToken": Nothing }
 
 
 
 -- | <p>You can query for how much of your instance usage was covered by a reservation.</p>
 newtype GetReservationCoverageRequest = GetReservationCoverageRequest 
   { "TimePeriod" :: (DateInterval)
-  , "GroupBy" :: NullOrUndefined (GroupDefinitions)
-  , "Granularity" :: NullOrUndefined (Granularity)
-  , "Filter" :: NullOrUndefined (Expression)
-  , "NextPageToken" :: NullOrUndefined (NextPageToken)
+  , "GroupBy" :: Maybe (GroupDefinitions)
+  , "Granularity" :: Maybe (Granularity)
+  , "Filter" :: Maybe (Expression)
+  , "NextPageToken" :: Maybe (NextPageToken)
   }
 derive instance newtypeGetReservationCoverageRequest :: Newtype GetReservationCoverageRequest _
 derive instance repGenericGetReservationCoverageRequest :: Generic GetReservationCoverageRequest _
@@ -434,19 +433,19 @@ instance encodeGetReservationCoverageRequest :: Encode GetReservationCoverageReq
 
 -- | Constructs GetReservationCoverageRequest from required parameters
 newGetReservationCoverageRequest :: DateInterval -> GetReservationCoverageRequest
-newGetReservationCoverageRequest _TimePeriod = GetReservationCoverageRequest { "TimePeriod": _TimePeriod, "Filter": (NullOrUndefined Nothing), "Granularity": (NullOrUndefined Nothing), "GroupBy": (NullOrUndefined Nothing), "NextPageToken": (NullOrUndefined Nothing) }
+newGetReservationCoverageRequest _TimePeriod = GetReservationCoverageRequest { "TimePeriod": _TimePeriod, "Filter": Nothing, "Granularity": Nothing, "GroupBy": Nothing, "NextPageToken": Nothing }
 
 -- | Constructs GetReservationCoverageRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetReservationCoverageRequest' :: DateInterval -> ( { "TimePeriod" :: (DateInterval) , "GroupBy" :: NullOrUndefined (GroupDefinitions) , "Granularity" :: NullOrUndefined (Granularity) , "Filter" :: NullOrUndefined (Expression) , "NextPageToken" :: NullOrUndefined (NextPageToken) } -> {"TimePeriod" :: (DateInterval) , "GroupBy" :: NullOrUndefined (GroupDefinitions) , "Granularity" :: NullOrUndefined (Granularity) , "Filter" :: NullOrUndefined (Expression) , "NextPageToken" :: NullOrUndefined (NextPageToken) } ) -> GetReservationCoverageRequest
-newGetReservationCoverageRequest' _TimePeriod customize = (GetReservationCoverageRequest <<< customize) { "TimePeriod": _TimePeriod, "Filter": (NullOrUndefined Nothing), "Granularity": (NullOrUndefined Nothing), "GroupBy": (NullOrUndefined Nothing), "NextPageToken": (NullOrUndefined Nothing) }
+newGetReservationCoverageRequest' :: DateInterval -> ( { "TimePeriod" :: (DateInterval) , "GroupBy" :: Maybe (GroupDefinitions) , "Granularity" :: Maybe (Granularity) , "Filter" :: Maybe (Expression) , "NextPageToken" :: Maybe (NextPageToken) } -> {"TimePeriod" :: (DateInterval) , "GroupBy" :: Maybe (GroupDefinitions) , "Granularity" :: Maybe (Granularity) , "Filter" :: Maybe (Expression) , "NextPageToken" :: Maybe (NextPageToken) } ) -> GetReservationCoverageRequest
+newGetReservationCoverageRequest' _TimePeriod customize = (GetReservationCoverageRequest <<< customize) { "TimePeriod": _TimePeriod, "Filter": Nothing, "Granularity": Nothing, "GroupBy": Nothing, "NextPageToken": Nothing }
 
 
 
 newtype GetReservationCoverageResponse = GetReservationCoverageResponse 
   { "CoveragesByTime" :: (CoveragesByTime)
-  , "Total" :: NullOrUndefined (Coverage)
-  , "NextPageToken" :: NullOrUndefined (NextPageToken)
+  , "Total" :: Maybe (Coverage)
+  , "NextPageToken" :: Maybe (NextPageToken)
   }
 derive instance newtypeGetReservationCoverageResponse :: Newtype GetReservationCoverageResponse _
 derive instance repGenericGetReservationCoverageResponse :: Generic GetReservationCoverageResponse _
@@ -456,21 +455,21 @@ instance encodeGetReservationCoverageResponse :: Encode GetReservationCoverageRe
 
 -- | Constructs GetReservationCoverageResponse from required parameters
 newGetReservationCoverageResponse :: CoveragesByTime -> GetReservationCoverageResponse
-newGetReservationCoverageResponse _CoveragesByTime = GetReservationCoverageResponse { "CoveragesByTime": _CoveragesByTime, "NextPageToken": (NullOrUndefined Nothing), "Total": (NullOrUndefined Nothing) }
+newGetReservationCoverageResponse _CoveragesByTime = GetReservationCoverageResponse { "CoveragesByTime": _CoveragesByTime, "NextPageToken": Nothing, "Total": Nothing }
 
 -- | Constructs GetReservationCoverageResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetReservationCoverageResponse' :: CoveragesByTime -> ( { "CoveragesByTime" :: (CoveragesByTime) , "Total" :: NullOrUndefined (Coverage) , "NextPageToken" :: NullOrUndefined (NextPageToken) } -> {"CoveragesByTime" :: (CoveragesByTime) , "Total" :: NullOrUndefined (Coverage) , "NextPageToken" :: NullOrUndefined (NextPageToken) } ) -> GetReservationCoverageResponse
-newGetReservationCoverageResponse' _CoveragesByTime customize = (GetReservationCoverageResponse <<< customize) { "CoveragesByTime": _CoveragesByTime, "NextPageToken": (NullOrUndefined Nothing), "Total": (NullOrUndefined Nothing) }
+newGetReservationCoverageResponse' :: CoveragesByTime -> ( { "CoveragesByTime" :: (CoveragesByTime) , "Total" :: Maybe (Coverage) , "NextPageToken" :: Maybe (NextPageToken) } -> {"CoveragesByTime" :: (CoveragesByTime) , "Total" :: Maybe (Coverage) , "NextPageToken" :: Maybe (NextPageToken) } ) -> GetReservationCoverageResponse
+newGetReservationCoverageResponse' _CoveragesByTime customize = (GetReservationCoverageResponse <<< customize) { "CoveragesByTime": _CoveragesByTime, "NextPageToken": Nothing, "Total": Nothing }
 
 
 
 newtype GetReservationUtilizationRequest = GetReservationUtilizationRequest 
   { "TimePeriod" :: (DateInterval)
-  , "GroupBy" :: NullOrUndefined (GroupDefinitions)
-  , "Granularity" :: NullOrUndefined (Granularity)
-  , "Filter" :: NullOrUndefined (Expression)
-  , "NextPageToken" :: NullOrUndefined (NextPageToken)
+  , "GroupBy" :: Maybe (GroupDefinitions)
+  , "Granularity" :: Maybe (Granularity)
+  , "Filter" :: Maybe (Expression)
+  , "NextPageToken" :: Maybe (NextPageToken)
   }
 derive instance newtypeGetReservationUtilizationRequest :: Newtype GetReservationUtilizationRequest _
 derive instance repGenericGetReservationUtilizationRequest :: Generic GetReservationUtilizationRequest _
@@ -480,19 +479,19 @@ instance encodeGetReservationUtilizationRequest :: Encode GetReservationUtilizat
 
 -- | Constructs GetReservationUtilizationRequest from required parameters
 newGetReservationUtilizationRequest :: DateInterval -> GetReservationUtilizationRequest
-newGetReservationUtilizationRequest _TimePeriod = GetReservationUtilizationRequest { "TimePeriod": _TimePeriod, "Filter": (NullOrUndefined Nothing), "Granularity": (NullOrUndefined Nothing), "GroupBy": (NullOrUndefined Nothing), "NextPageToken": (NullOrUndefined Nothing) }
+newGetReservationUtilizationRequest _TimePeriod = GetReservationUtilizationRequest { "TimePeriod": _TimePeriod, "Filter": Nothing, "Granularity": Nothing, "GroupBy": Nothing, "NextPageToken": Nothing }
 
 -- | Constructs GetReservationUtilizationRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetReservationUtilizationRequest' :: DateInterval -> ( { "TimePeriod" :: (DateInterval) , "GroupBy" :: NullOrUndefined (GroupDefinitions) , "Granularity" :: NullOrUndefined (Granularity) , "Filter" :: NullOrUndefined (Expression) , "NextPageToken" :: NullOrUndefined (NextPageToken) } -> {"TimePeriod" :: (DateInterval) , "GroupBy" :: NullOrUndefined (GroupDefinitions) , "Granularity" :: NullOrUndefined (Granularity) , "Filter" :: NullOrUndefined (Expression) , "NextPageToken" :: NullOrUndefined (NextPageToken) } ) -> GetReservationUtilizationRequest
-newGetReservationUtilizationRequest' _TimePeriod customize = (GetReservationUtilizationRequest <<< customize) { "TimePeriod": _TimePeriod, "Filter": (NullOrUndefined Nothing), "Granularity": (NullOrUndefined Nothing), "GroupBy": (NullOrUndefined Nothing), "NextPageToken": (NullOrUndefined Nothing) }
+newGetReservationUtilizationRequest' :: DateInterval -> ( { "TimePeriod" :: (DateInterval) , "GroupBy" :: Maybe (GroupDefinitions) , "Granularity" :: Maybe (Granularity) , "Filter" :: Maybe (Expression) , "NextPageToken" :: Maybe (NextPageToken) } -> {"TimePeriod" :: (DateInterval) , "GroupBy" :: Maybe (GroupDefinitions) , "Granularity" :: Maybe (Granularity) , "Filter" :: Maybe (Expression) , "NextPageToken" :: Maybe (NextPageToken) } ) -> GetReservationUtilizationRequest
+newGetReservationUtilizationRequest' _TimePeriod customize = (GetReservationUtilizationRequest <<< customize) { "TimePeriod": _TimePeriod, "Filter": Nothing, "Granularity": Nothing, "GroupBy": Nothing, "NextPageToken": Nothing }
 
 
 
 newtype GetReservationUtilizationResponse = GetReservationUtilizationResponse 
   { "UtilizationsByTime" :: (UtilizationsByTime)
-  , "Total" :: NullOrUndefined (ReservationAggregates)
-  , "NextPageToken" :: NullOrUndefined (NextPageToken)
+  , "Total" :: Maybe (ReservationAggregates)
+  , "NextPageToken" :: Maybe (NextPageToken)
   }
 derive instance newtypeGetReservationUtilizationResponse :: Newtype GetReservationUtilizationResponse _
 derive instance repGenericGetReservationUtilizationResponse :: Generic GetReservationUtilizationResponse _
@@ -502,20 +501,20 @@ instance encodeGetReservationUtilizationResponse :: Encode GetReservationUtiliza
 
 -- | Constructs GetReservationUtilizationResponse from required parameters
 newGetReservationUtilizationResponse :: UtilizationsByTime -> GetReservationUtilizationResponse
-newGetReservationUtilizationResponse _UtilizationsByTime = GetReservationUtilizationResponse { "UtilizationsByTime": _UtilizationsByTime, "NextPageToken": (NullOrUndefined Nothing), "Total": (NullOrUndefined Nothing) }
+newGetReservationUtilizationResponse _UtilizationsByTime = GetReservationUtilizationResponse { "UtilizationsByTime": _UtilizationsByTime, "NextPageToken": Nothing, "Total": Nothing }
 
 -- | Constructs GetReservationUtilizationResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetReservationUtilizationResponse' :: UtilizationsByTime -> ( { "UtilizationsByTime" :: (UtilizationsByTime) , "Total" :: NullOrUndefined (ReservationAggregates) , "NextPageToken" :: NullOrUndefined (NextPageToken) } -> {"UtilizationsByTime" :: (UtilizationsByTime) , "Total" :: NullOrUndefined (ReservationAggregates) , "NextPageToken" :: NullOrUndefined (NextPageToken) } ) -> GetReservationUtilizationResponse
-newGetReservationUtilizationResponse' _UtilizationsByTime customize = (GetReservationUtilizationResponse <<< customize) { "UtilizationsByTime": _UtilizationsByTime, "NextPageToken": (NullOrUndefined Nothing), "Total": (NullOrUndefined Nothing) }
+newGetReservationUtilizationResponse' :: UtilizationsByTime -> ( { "UtilizationsByTime" :: (UtilizationsByTime) , "Total" :: Maybe (ReservationAggregates) , "NextPageToken" :: Maybe (NextPageToken) } -> {"UtilizationsByTime" :: (UtilizationsByTime) , "Total" :: Maybe (ReservationAggregates) , "NextPageToken" :: Maybe (NextPageToken) } ) -> GetReservationUtilizationResponse
+newGetReservationUtilizationResponse' _UtilizationsByTime customize = (GetReservationUtilizationResponse <<< customize) { "UtilizationsByTime": _UtilizationsByTime, "NextPageToken": Nothing, "Total": Nothing }
 
 
 
 newtype GetTagsRequest = GetTagsRequest 
-  { "SearchString" :: NullOrUndefined (SearchString)
+  { "SearchString" :: Maybe (SearchString)
   , "TimePeriod" :: (DateInterval)
-  , "TagKey" :: NullOrUndefined (TagKey)
-  , "NextPageToken" :: NullOrUndefined (NextPageToken)
+  , "TagKey" :: Maybe (TagKey)
+  , "NextPageToken" :: Maybe (NextPageToken)
   }
 derive instance newtypeGetTagsRequest :: Newtype GetTagsRequest _
 derive instance repGenericGetTagsRequest :: Generic GetTagsRequest _
@@ -525,17 +524,17 @@ instance encodeGetTagsRequest :: Encode GetTagsRequest where encode = genericEnc
 
 -- | Constructs GetTagsRequest from required parameters
 newGetTagsRequest :: DateInterval -> GetTagsRequest
-newGetTagsRequest _TimePeriod = GetTagsRequest { "TimePeriod": _TimePeriod, "NextPageToken": (NullOrUndefined Nothing), "SearchString": (NullOrUndefined Nothing), "TagKey": (NullOrUndefined Nothing) }
+newGetTagsRequest _TimePeriod = GetTagsRequest { "TimePeriod": _TimePeriod, "NextPageToken": Nothing, "SearchString": Nothing, "TagKey": Nothing }
 
 -- | Constructs GetTagsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetTagsRequest' :: DateInterval -> ( { "SearchString" :: NullOrUndefined (SearchString) , "TimePeriod" :: (DateInterval) , "TagKey" :: NullOrUndefined (TagKey) , "NextPageToken" :: NullOrUndefined (NextPageToken) } -> {"SearchString" :: NullOrUndefined (SearchString) , "TimePeriod" :: (DateInterval) , "TagKey" :: NullOrUndefined (TagKey) , "NextPageToken" :: NullOrUndefined (NextPageToken) } ) -> GetTagsRequest
-newGetTagsRequest' _TimePeriod customize = (GetTagsRequest <<< customize) { "TimePeriod": _TimePeriod, "NextPageToken": (NullOrUndefined Nothing), "SearchString": (NullOrUndefined Nothing), "TagKey": (NullOrUndefined Nothing) }
+newGetTagsRequest' :: DateInterval -> ( { "SearchString" :: Maybe (SearchString) , "TimePeriod" :: (DateInterval) , "TagKey" :: Maybe (TagKey) , "NextPageToken" :: Maybe (NextPageToken) } -> {"SearchString" :: Maybe (SearchString) , "TimePeriod" :: (DateInterval) , "TagKey" :: Maybe (TagKey) , "NextPageToken" :: Maybe (NextPageToken) } ) -> GetTagsRequest
+newGetTagsRequest' _TimePeriod customize = (GetTagsRequest <<< customize) { "TimePeriod": _TimePeriod, "NextPageToken": Nothing, "SearchString": Nothing, "TagKey": Nothing }
 
 
 
 newtype GetTagsResponse = GetTagsResponse 
-  { "NextPageToken" :: NullOrUndefined (NextPageToken)
+  { "NextPageToken" :: Maybe (NextPageToken)
   , "Tags" :: (TagList)
   , "ReturnSize" :: (PageSize)
   , "TotalSize" :: (PageSize)
@@ -548,12 +547,12 @@ instance encodeGetTagsResponse :: Encode GetTagsResponse where encode = genericE
 
 -- | Constructs GetTagsResponse from required parameters
 newGetTagsResponse :: PageSize -> TagList -> PageSize -> GetTagsResponse
-newGetTagsResponse _ReturnSize _Tags _TotalSize = GetTagsResponse { "ReturnSize": _ReturnSize, "Tags": _Tags, "TotalSize": _TotalSize, "NextPageToken": (NullOrUndefined Nothing) }
+newGetTagsResponse _ReturnSize _Tags _TotalSize = GetTagsResponse { "ReturnSize": _ReturnSize, "Tags": _Tags, "TotalSize": _TotalSize, "NextPageToken": Nothing }
 
 -- | Constructs GetTagsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetTagsResponse' :: PageSize -> TagList -> PageSize -> ( { "NextPageToken" :: NullOrUndefined (NextPageToken) , "Tags" :: (TagList) , "ReturnSize" :: (PageSize) , "TotalSize" :: (PageSize) } -> {"NextPageToken" :: NullOrUndefined (NextPageToken) , "Tags" :: (TagList) , "ReturnSize" :: (PageSize) , "TotalSize" :: (PageSize) } ) -> GetTagsResponse
-newGetTagsResponse' _ReturnSize _Tags _TotalSize customize = (GetTagsResponse <<< customize) { "ReturnSize": _ReturnSize, "Tags": _Tags, "TotalSize": _TotalSize, "NextPageToken": (NullOrUndefined Nothing) }
+newGetTagsResponse' :: PageSize -> TagList -> PageSize -> ( { "NextPageToken" :: Maybe (NextPageToken) , "Tags" :: (TagList) , "ReturnSize" :: (PageSize) , "TotalSize" :: (PageSize) } -> {"NextPageToken" :: Maybe (NextPageToken) , "Tags" :: (TagList) , "ReturnSize" :: (PageSize) , "TotalSize" :: (PageSize) } ) -> GetTagsResponse
+newGetTagsResponse' _ReturnSize _Tags _TotalSize customize = (GetTagsResponse <<< customize) { "ReturnSize": _ReturnSize, "Tags": _Tags, "TotalSize": _TotalSize, "NextPageToken": Nothing }
 
 
 
@@ -568,8 +567,8 @@ instance encodeGranularity :: Encode Granularity where encode = genericEncode op
 
 -- | <p>One level of grouped data within the results.</p>
 newtype Group = Group 
-  { "Keys" :: NullOrUndefined (Keys)
-  , "Metrics" :: NullOrUndefined (Metrics)
+  { "Keys" :: Maybe (Keys)
+  , "Metrics" :: Maybe (Metrics)
   }
 derive instance newtypeGroup :: Newtype Group _
 derive instance repGenericGroup :: Generic Group _
@@ -579,19 +578,19 @@ instance encodeGroup :: Encode Group where encode = genericEncode options
 
 -- | Constructs Group from required parameters
 newGroup :: Group
-newGroup  = Group { "Keys": (NullOrUndefined Nothing), "Metrics": (NullOrUndefined Nothing) }
+newGroup  = Group { "Keys": Nothing, "Metrics": Nothing }
 
 -- | Constructs Group's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGroup' :: ( { "Keys" :: NullOrUndefined (Keys) , "Metrics" :: NullOrUndefined (Metrics) } -> {"Keys" :: NullOrUndefined (Keys) , "Metrics" :: NullOrUndefined (Metrics) } ) -> Group
-newGroup'  customize = (Group <<< customize) { "Keys": (NullOrUndefined Nothing), "Metrics": (NullOrUndefined Nothing) }
+newGroup' :: ( { "Keys" :: Maybe (Keys) , "Metrics" :: Maybe (Metrics) } -> {"Keys" :: Maybe (Keys) , "Metrics" :: Maybe (Metrics) } ) -> Group
+newGroup'  customize = (Group <<< customize) { "Keys": Nothing, "Metrics": Nothing }
 
 
 
 -- | <p>Represents a group when you specify a group by criteria, or in the response to a query with a specific grouping.</p>
 newtype GroupDefinition = GroupDefinition 
-  { "Type" :: NullOrUndefined (GroupDefinitionType)
-  , "Key" :: NullOrUndefined (GroupDefinitionKey)
+  { "Type" :: Maybe (GroupDefinitionType)
+  , "Key" :: Maybe (GroupDefinitionKey)
   }
 derive instance newtypeGroupDefinition :: Newtype GroupDefinition _
 derive instance repGenericGroupDefinition :: Generic GroupDefinition _
@@ -601,12 +600,12 @@ instance encodeGroupDefinition :: Encode GroupDefinition where encode = genericE
 
 -- | Constructs GroupDefinition from required parameters
 newGroupDefinition :: GroupDefinition
-newGroupDefinition  = GroupDefinition { "Key": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newGroupDefinition  = GroupDefinition { "Key": Nothing, "Type": Nothing }
 
 -- | Constructs GroupDefinition's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGroupDefinition' :: ( { "Type" :: NullOrUndefined (GroupDefinitionType) , "Key" :: NullOrUndefined (GroupDefinitionKey) } -> {"Type" :: NullOrUndefined (GroupDefinitionType) , "Key" :: NullOrUndefined (GroupDefinitionKey) } ) -> GroupDefinition
-newGroupDefinition'  customize = (GroupDefinition <<< customize) { "Key": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newGroupDefinition' :: ( { "Type" :: Maybe (GroupDefinitionType) , "Key" :: Maybe (GroupDefinitionKey) } -> {"Type" :: Maybe (GroupDefinitionType) , "Key" :: Maybe (GroupDefinitionKey) } ) -> GroupDefinition
+newGroupDefinition'  customize = (GroupDefinition <<< customize) { "Key": Nothing, "Type": Nothing }
 
 
 
@@ -648,7 +647,7 @@ instance encodeGroups :: Encode Groups where encode = genericEncode options
 
 -- | <p>The pagination token is invalid. Try again without a pagination token.</p>
 newtype InvalidNextTokenException = InvalidNextTokenException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidNextTokenException :: Newtype InvalidNextTokenException _
 derive instance repGenericInvalidNextTokenException :: Generic InvalidNextTokenException _
@@ -658,12 +657,12 @@ instance encodeInvalidNextTokenException :: Encode InvalidNextTokenException whe
 
 -- | Constructs InvalidNextTokenException from required parameters
 newInvalidNextTokenException :: InvalidNextTokenException
-newInvalidNextTokenException  = InvalidNextTokenException { "Message": (NullOrUndefined Nothing) }
+newInvalidNextTokenException  = InvalidNextTokenException { "Message": Nothing }
 
 -- | Constructs InvalidNextTokenException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidNextTokenException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidNextTokenException
-newInvalidNextTokenException'  customize = (InvalidNextTokenException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidNextTokenException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> InvalidNextTokenException
+newInvalidNextTokenException'  customize = (InvalidNextTokenException <<< customize) { "Message": Nothing }
 
 
 
@@ -687,7 +686,7 @@ instance encodeKeys :: Encode Keys where encode = genericEncode options
 
 -- | <p>You made too many calls in a short period of time. Try again later.</p>
 newtype LimitExceededException = LimitExceededException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeLimitExceededException :: Newtype LimitExceededException _
 derive instance repGenericLimitExceededException :: Generic LimitExceededException _
@@ -697,12 +696,12 @@ instance encodeLimitExceededException :: Encode LimitExceededException where enc
 
 -- | Constructs LimitExceededException from required parameters
 newLimitExceededException :: LimitExceededException
-newLimitExceededException  = LimitExceededException { "Message": (NullOrUndefined Nothing) }
+newLimitExceededException  = LimitExceededException { "Message": Nothing }
 
 -- | Constructs LimitExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLimitExceededException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> LimitExceededException
-newLimitExceededException'  customize = (LimitExceededException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newLimitExceededException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> LimitExceededException
+newLimitExceededException'  customize = (LimitExceededException <<< customize) { "Message": Nothing }
 
 
 
@@ -744,8 +743,8 @@ instance encodeMetricUnit :: Encode MetricUnit where encode = genericEncode opti
 
 -- | <p>The aggregated value for a metric.</p>
 newtype MetricValue = MetricValue 
-  { "Amount" :: NullOrUndefined (MetricAmount)
-  , "Unit" :: NullOrUndefined (MetricUnit)
+  { "Amount" :: Maybe (MetricAmount)
+  , "Unit" :: Maybe (MetricUnit)
   }
 derive instance newtypeMetricValue :: Newtype MetricValue _
 derive instance repGenericMetricValue :: Generic MetricValue _
@@ -755,12 +754,12 @@ instance encodeMetricValue :: Encode MetricValue where encode = genericEncode op
 
 -- | Constructs MetricValue from required parameters
 newMetricValue :: MetricValue
-newMetricValue  = MetricValue { "Amount": (NullOrUndefined Nothing), "Unit": (NullOrUndefined Nothing) }
+newMetricValue  = MetricValue { "Amount": Nothing, "Unit": Nothing }
 
 -- | Constructs MetricValue's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMetricValue' :: ( { "Amount" :: NullOrUndefined (MetricAmount) , "Unit" :: NullOrUndefined (MetricUnit) } -> {"Amount" :: NullOrUndefined (MetricAmount) , "Unit" :: NullOrUndefined (MetricUnit) } ) -> MetricValue
-newMetricValue'  customize = (MetricValue <<< customize) { "Amount": (NullOrUndefined Nothing), "Unit": (NullOrUndefined Nothing) }
+newMetricValue' :: ( { "Amount" :: Maybe (MetricAmount) , "Unit" :: Maybe (MetricUnit) } -> {"Amount" :: Maybe (MetricAmount) , "Unit" :: Maybe (MetricUnit) } ) -> MetricValue
+newMetricValue'  customize = (MetricValue <<< customize) { "Amount": Nothing, "Unit": Nothing }
 
 
 
@@ -811,10 +810,10 @@ instance encodePurchasedHours :: Encode PurchasedHours where encode = genericEnc
 
 -- | <p>The aggregated numbers for your RI usage.</p>
 newtype ReservationAggregates = ReservationAggregates 
-  { "UtilizationPercentage" :: NullOrUndefined (UtilizationPercentage)
-  , "PurchasedHours" :: NullOrUndefined (PurchasedHours)
-  , "TotalActualHours" :: NullOrUndefined (TotalActualHours)
-  , "UnusedHours" :: NullOrUndefined (UnusedHours)
+  { "UtilizationPercentage" :: Maybe (UtilizationPercentage)
+  , "PurchasedHours" :: Maybe (PurchasedHours)
+  , "TotalActualHours" :: Maybe (TotalActualHours)
+  , "UnusedHours" :: Maybe (UnusedHours)
   }
 derive instance newtypeReservationAggregates :: Newtype ReservationAggregates _
 derive instance repGenericReservationAggregates :: Generic ReservationAggregates _
@@ -824,19 +823,19 @@ instance encodeReservationAggregates :: Encode ReservationAggregates where encod
 
 -- | Constructs ReservationAggregates from required parameters
 newReservationAggregates :: ReservationAggregates
-newReservationAggregates  = ReservationAggregates { "PurchasedHours": (NullOrUndefined Nothing), "TotalActualHours": (NullOrUndefined Nothing), "UnusedHours": (NullOrUndefined Nothing), "UtilizationPercentage": (NullOrUndefined Nothing) }
+newReservationAggregates  = ReservationAggregates { "PurchasedHours": Nothing, "TotalActualHours": Nothing, "UnusedHours": Nothing, "UtilizationPercentage": Nothing }
 
 -- | Constructs ReservationAggregates's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newReservationAggregates' :: ( { "UtilizationPercentage" :: NullOrUndefined (UtilizationPercentage) , "PurchasedHours" :: NullOrUndefined (PurchasedHours) , "TotalActualHours" :: NullOrUndefined (TotalActualHours) , "UnusedHours" :: NullOrUndefined (UnusedHours) } -> {"UtilizationPercentage" :: NullOrUndefined (UtilizationPercentage) , "PurchasedHours" :: NullOrUndefined (PurchasedHours) , "TotalActualHours" :: NullOrUndefined (TotalActualHours) , "UnusedHours" :: NullOrUndefined (UnusedHours) } ) -> ReservationAggregates
-newReservationAggregates'  customize = (ReservationAggregates <<< customize) { "PurchasedHours": (NullOrUndefined Nothing), "TotalActualHours": (NullOrUndefined Nothing), "UnusedHours": (NullOrUndefined Nothing), "UtilizationPercentage": (NullOrUndefined Nothing) }
+newReservationAggregates' :: ( { "UtilizationPercentage" :: Maybe (UtilizationPercentage) , "PurchasedHours" :: Maybe (PurchasedHours) , "TotalActualHours" :: Maybe (TotalActualHours) , "UnusedHours" :: Maybe (UnusedHours) } -> {"UtilizationPercentage" :: Maybe (UtilizationPercentage) , "PurchasedHours" :: Maybe (PurchasedHours) , "TotalActualHours" :: Maybe (TotalActualHours) , "UnusedHours" :: Maybe (UnusedHours) } ) -> ReservationAggregates
+newReservationAggregates'  customize = (ReservationAggregates <<< customize) { "PurchasedHours": Nothing, "TotalActualHours": Nothing, "UnusedHours": Nothing, "UtilizationPercentage": Nothing }
 
 
 
 -- | <p>A group of reservations that share a set of attributes.</p>
 newtype ReservationCoverageGroup = ReservationCoverageGroup 
-  { "Attributes" :: NullOrUndefined (Attributes)
-  , "Coverage" :: NullOrUndefined (Coverage)
+  { "Attributes" :: Maybe (Attributes)
+  , "Coverage" :: Maybe (Coverage)
   }
 derive instance newtypeReservationCoverageGroup :: Newtype ReservationCoverageGroup _
 derive instance repGenericReservationCoverageGroup :: Generic ReservationCoverageGroup _
@@ -846,12 +845,12 @@ instance encodeReservationCoverageGroup :: Encode ReservationCoverageGroup where
 
 -- | Constructs ReservationCoverageGroup from required parameters
 newReservationCoverageGroup :: ReservationCoverageGroup
-newReservationCoverageGroup  = ReservationCoverageGroup { "Attributes": (NullOrUndefined Nothing), "Coverage": (NullOrUndefined Nothing) }
+newReservationCoverageGroup  = ReservationCoverageGroup { "Attributes": Nothing, "Coverage": Nothing }
 
 -- | Constructs ReservationCoverageGroup's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newReservationCoverageGroup' :: ( { "Attributes" :: NullOrUndefined (Attributes) , "Coverage" :: NullOrUndefined (Coverage) } -> {"Attributes" :: NullOrUndefined (Attributes) , "Coverage" :: NullOrUndefined (Coverage) } ) -> ReservationCoverageGroup
-newReservationCoverageGroup'  customize = (ReservationCoverageGroup <<< customize) { "Attributes": (NullOrUndefined Nothing), "Coverage": (NullOrUndefined Nothing) }
+newReservationCoverageGroup' :: ( { "Attributes" :: Maybe (Attributes) , "Coverage" :: Maybe (Coverage) } -> {"Attributes" :: Maybe (Attributes) , "Coverage" :: Maybe (Coverage) } ) -> ReservationCoverageGroup
+newReservationCoverageGroup'  customize = (ReservationCoverageGroup <<< customize) { "Attributes": Nothing, "Coverage": Nothing }
 
 
 
@@ -884,10 +883,10 @@ instance encodeReservationGroupValue :: Encode ReservationGroupValue where encod
 
 -- | <p>A group of RIs that share a set of attributes.</p>
 newtype ReservationUtilizationGroup = ReservationUtilizationGroup 
-  { "Key" :: NullOrUndefined (ReservationGroupKey)
-  , "Value" :: NullOrUndefined (ReservationGroupValue)
-  , "Attributes" :: NullOrUndefined (Attributes)
-  , "Utilization" :: NullOrUndefined (ReservationAggregates)
+  { "Key" :: Maybe (ReservationGroupKey)
+  , "Value" :: Maybe (ReservationGroupValue)
+  , "Attributes" :: Maybe (Attributes)
+  , "Utilization" :: Maybe (ReservationAggregates)
   }
 derive instance newtypeReservationUtilizationGroup :: Newtype ReservationUtilizationGroup _
 derive instance repGenericReservationUtilizationGroup :: Generic ReservationUtilizationGroup _
@@ -897,12 +896,12 @@ instance encodeReservationUtilizationGroup :: Encode ReservationUtilizationGroup
 
 -- | Constructs ReservationUtilizationGroup from required parameters
 newReservationUtilizationGroup :: ReservationUtilizationGroup
-newReservationUtilizationGroup  = ReservationUtilizationGroup { "Attributes": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "Utilization": (NullOrUndefined Nothing), "Value": (NullOrUndefined Nothing) }
+newReservationUtilizationGroup  = ReservationUtilizationGroup { "Attributes": Nothing, "Key": Nothing, "Utilization": Nothing, "Value": Nothing }
 
 -- | Constructs ReservationUtilizationGroup's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newReservationUtilizationGroup' :: ( { "Key" :: NullOrUndefined (ReservationGroupKey) , "Value" :: NullOrUndefined (ReservationGroupValue) , "Attributes" :: NullOrUndefined (Attributes) , "Utilization" :: NullOrUndefined (ReservationAggregates) } -> {"Key" :: NullOrUndefined (ReservationGroupKey) , "Value" :: NullOrUndefined (ReservationGroupValue) , "Attributes" :: NullOrUndefined (Attributes) , "Utilization" :: NullOrUndefined (ReservationAggregates) } ) -> ReservationUtilizationGroup
-newReservationUtilizationGroup'  customize = (ReservationUtilizationGroup <<< customize) { "Attributes": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "Utilization": (NullOrUndefined Nothing), "Value": (NullOrUndefined Nothing) }
+newReservationUtilizationGroup' :: ( { "Key" :: Maybe (ReservationGroupKey) , "Value" :: Maybe (ReservationGroupValue) , "Attributes" :: Maybe (Attributes) , "Utilization" :: Maybe (ReservationAggregates) } -> {"Key" :: Maybe (ReservationGroupKey) , "Value" :: Maybe (ReservationGroupValue) , "Attributes" :: Maybe (Attributes) , "Utilization" :: Maybe (ReservationAggregates) } ) -> ReservationUtilizationGroup
+newReservationUtilizationGroup'  customize = (ReservationUtilizationGroup <<< customize) { "Attributes": Nothing, "Key": Nothing, "Utilization": Nothing, "Value": Nothing }
 
 
 
@@ -926,10 +925,10 @@ instance encodeReservedHours :: Encode ReservedHours where encode = genericEncod
 
 -- | <p>The result that is associated with a time period.</p>
 newtype ResultByTime = ResultByTime 
-  { "TimePeriod" :: NullOrUndefined (DateInterval)
-  , "Total" :: NullOrUndefined (Metrics)
-  , "Groups" :: NullOrUndefined (Groups)
-  , "Estimated" :: NullOrUndefined (Estimated)
+  { "TimePeriod" :: Maybe (DateInterval)
+  , "Total" :: Maybe (Metrics)
+  , "Groups" :: Maybe (Groups)
+  , "Estimated" :: Maybe (Estimated)
   }
 derive instance newtypeResultByTime :: Newtype ResultByTime _
 derive instance repGenericResultByTime :: Generic ResultByTime _
@@ -939,12 +938,12 @@ instance encodeResultByTime :: Encode ResultByTime where encode = genericEncode 
 
 -- | Constructs ResultByTime from required parameters
 newResultByTime :: ResultByTime
-newResultByTime  = ResultByTime { "Estimated": (NullOrUndefined Nothing), "Groups": (NullOrUndefined Nothing), "TimePeriod": (NullOrUndefined Nothing), "Total": (NullOrUndefined Nothing) }
+newResultByTime  = ResultByTime { "Estimated": Nothing, "Groups": Nothing, "TimePeriod": Nothing, "Total": Nothing }
 
 -- | Constructs ResultByTime's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResultByTime' :: ( { "TimePeriod" :: NullOrUndefined (DateInterval) , "Total" :: NullOrUndefined (Metrics) , "Groups" :: NullOrUndefined (Groups) , "Estimated" :: NullOrUndefined (Estimated) } -> {"TimePeriod" :: NullOrUndefined (DateInterval) , "Total" :: NullOrUndefined (Metrics) , "Groups" :: NullOrUndefined (Groups) , "Estimated" :: NullOrUndefined (Estimated) } ) -> ResultByTime
-newResultByTime'  customize = (ResultByTime <<< customize) { "Estimated": (NullOrUndefined Nothing), "Groups": (NullOrUndefined Nothing), "TimePeriod": (NullOrUndefined Nothing), "Total": (NullOrUndefined Nothing) }
+newResultByTime' :: ( { "TimePeriod" :: Maybe (DateInterval) , "Total" :: Maybe (Metrics) , "Groups" :: Maybe (Groups) , "Estimated" :: Maybe (Estimated) } -> {"TimePeriod" :: Maybe (DateInterval) , "Total" :: Maybe (Metrics) , "Groups" :: Maybe (Groups) , "Estimated" :: Maybe (Estimated) } ) -> ResultByTime
+newResultByTime'  customize = (ResultByTime <<< customize) { "Estimated": Nothing, "Groups": Nothing, "TimePeriod": Nothing, "Total": Nothing }
 
 
 
@@ -986,8 +985,8 @@ instance encodeTagList :: Encode TagList where encode = genericEncode options
 
 -- | <p>The values that are available for a tag.</p>
 newtype TagValues = TagValues 
-  { "Key" :: NullOrUndefined (TagKey)
-  , "Values" :: NullOrUndefined (Values)
+  { "Key" :: Maybe (TagKey)
+  , "Values" :: Maybe (Values)
   }
 derive instance newtypeTagValues :: Newtype TagValues _
 derive instance repGenericTagValues :: Generic TagValues _
@@ -997,12 +996,12 @@ instance encodeTagValues :: Encode TagValues where encode = genericEncode option
 
 -- | Constructs TagValues from required parameters
 newTagValues :: TagValues
-newTagValues  = TagValues { "Key": (NullOrUndefined Nothing), "Values": (NullOrUndefined Nothing) }
+newTagValues  = TagValues { "Key": Nothing, "Values": Nothing }
 
 -- | Constructs TagValues's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTagValues' :: ( { "Key" :: NullOrUndefined (TagKey) , "Values" :: NullOrUndefined (Values) } -> {"Key" :: NullOrUndefined (TagKey) , "Values" :: NullOrUndefined (Values) } ) -> TagValues
-newTagValues'  customize = (TagValues <<< customize) { "Key": (NullOrUndefined Nothing), "Values": (NullOrUndefined Nothing) }
+newTagValues' :: ( { "Key" :: Maybe (TagKey) , "Values" :: Maybe (Values) } -> {"Key" :: Maybe (TagKey) , "Values" :: Maybe (Values) } ) -> TagValues
+newTagValues'  customize = (TagValues <<< customize) { "Key": Nothing, "Values": Nothing }
 
 
 
@@ -1035,9 +1034,9 @@ instance encodeUnusedHours :: Encode UnusedHours where encode = genericEncode op
 
 -- | <p>The amount of utilization, in hours.</p>
 newtype UtilizationByTime = UtilizationByTime 
-  { "TimePeriod" :: NullOrUndefined (DateInterval)
-  , "Groups" :: NullOrUndefined (ReservationUtilizationGroups)
-  , "Total" :: NullOrUndefined (ReservationAggregates)
+  { "TimePeriod" :: Maybe (DateInterval)
+  , "Groups" :: Maybe (ReservationUtilizationGroups)
+  , "Total" :: Maybe (ReservationAggregates)
   }
 derive instance newtypeUtilizationByTime :: Newtype UtilizationByTime _
 derive instance repGenericUtilizationByTime :: Generic UtilizationByTime _
@@ -1047,12 +1046,12 @@ instance encodeUtilizationByTime :: Encode UtilizationByTime where encode = gene
 
 -- | Constructs UtilizationByTime from required parameters
 newUtilizationByTime :: UtilizationByTime
-newUtilizationByTime  = UtilizationByTime { "Groups": (NullOrUndefined Nothing), "TimePeriod": (NullOrUndefined Nothing), "Total": (NullOrUndefined Nothing) }
+newUtilizationByTime  = UtilizationByTime { "Groups": Nothing, "TimePeriod": Nothing, "Total": Nothing }
 
 -- | Constructs UtilizationByTime's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUtilizationByTime' :: ( { "TimePeriod" :: NullOrUndefined (DateInterval) , "Groups" :: NullOrUndefined (ReservationUtilizationGroups) , "Total" :: NullOrUndefined (ReservationAggregates) } -> {"TimePeriod" :: NullOrUndefined (DateInterval) , "Groups" :: NullOrUndefined (ReservationUtilizationGroups) , "Total" :: NullOrUndefined (ReservationAggregates) } ) -> UtilizationByTime
-newUtilizationByTime'  customize = (UtilizationByTime <<< customize) { "Groups": (NullOrUndefined Nothing), "TimePeriod": (NullOrUndefined Nothing), "Total": (NullOrUndefined Nothing) }
+newUtilizationByTime' :: ( { "TimePeriod" :: Maybe (DateInterval) , "Groups" :: Maybe (ReservationUtilizationGroups) , "Total" :: Maybe (ReservationAggregates) } -> {"TimePeriod" :: Maybe (DateInterval) , "Groups" :: Maybe (ReservationUtilizationGroups) , "Total" :: Maybe (ReservationAggregates) } ) -> UtilizationByTime
+newUtilizationByTime'  customize = (UtilizationByTime <<< customize) { "Groups": Nothing, "TimePeriod": Nothing, "Total": Nothing }
 
 
 

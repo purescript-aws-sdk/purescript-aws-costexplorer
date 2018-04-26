@@ -58,7 +58,7 @@ Encode Attributes
 
 ``` purescript
 newtype BillExpirationException
-  = BillExpirationException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = BillExpirationException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The requested report expired. Update the date interval and try again.</p>
@@ -83,7 +83,7 @@ Constructs BillExpirationException from required parameters
 #### `newBillExpirationException'`
 
 ``` purescript
-newBillExpirationException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> BillExpirationException
+newBillExpirationException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> BillExpirationException
 ```
 
 Constructs BillExpirationException's fields from required parameters
@@ -108,7 +108,7 @@ Encode Context
 
 ``` purescript
 newtype Coverage
-  = Coverage { "CoverageHours" :: NullOrUndefined (CoverageHours) }
+  = Coverage { "CoverageHours" :: Maybe (CoverageHours) }
 ```
 
 <p>The amount of instance usage that a reservation covered.</p>
@@ -133,7 +133,7 @@ Constructs Coverage from required parameters
 #### `newCoverage'`
 
 ``` purescript
-newCoverage' :: ({ "CoverageHours" :: NullOrUndefined (CoverageHours) } -> { "CoverageHours" :: NullOrUndefined (CoverageHours) }) -> Coverage
+newCoverage' :: ({ "CoverageHours" :: Maybe (CoverageHours) } -> { "CoverageHours" :: Maybe (CoverageHours) }) -> Coverage
 ```
 
 Constructs Coverage's fields from required parameters
@@ -142,7 +142,7 @@ Constructs Coverage's fields from required parameters
 
 ``` purescript
 newtype CoverageByTime
-  = CoverageByTime { "TimePeriod" :: NullOrUndefined (DateInterval), "Groups" :: NullOrUndefined (ReservationCoverageGroups), "Total" :: NullOrUndefined (Coverage) }
+  = CoverageByTime { "TimePeriod" :: Maybe (DateInterval), "Groups" :: Maybe (ReservationCoverageGroups), "Total" :: Maybe (Coverage) }
 ```
 
 <p>Reservation coverage, in hours.</p>
@@ -167,7 +167,7 @@ Constructs CoverageByTime from required parameters
 #### `newCoverageByTime'`
 
 ``` purescript
-newCoverageByTime' :: ({ "TimePeriod" :: NullOrUndefined (DateInterval), "Groups" :: NullOrUndefined (ReservationCoverageGroups), "Total" :: NullOrUndefined (Coverage) } -> { "TimePeriod" :: NullOrUndefined (DateInterval), "Groups" :: NullOrUndefined (ReservationCoverageGroups), "Total" :: NullOrUndefined (Coverage) }) -> CoverageByTime
+newCoverageByTime' :: ({ "TimePeriod" :: Maybe (DateInterval), "Groups" :: Maybe (ReservationCoverageGroups), "Total" :: Maybe (Coverage) } -> { "TimePeriod" :: Maybe (DateInterval), "Groups" :: Maybe (ReservationCoverageGroups), "Total" :: Maybe (Coverage) }) -> CoverageByTime
 ```
 
 Constructs CoverageByTime's fields from required parameters
@@ -176,7 +176,7 @@ Constructs CoverageByTime's fields from required parameters
 
 ``` purescript
 newtype CoverageHours
-  = CoverageHours { "OnDemandHours" :: NullOrUndefined (OnDemandHours), "ReservedHours" :: NullOrUndefined (ReservedHours), "TotalRunningHours" :: NullOrUndefined (TotalRunningHours), "CoverageHoursPercentage" :: NullOrUndefined (CoverageHoursPercentage) }
+  = CoverageHours { "OnDemandHours" :: Maybe (OnDemandHours), "ReservedHours" :: Maybe (ReservedHours), "TotalRunningHours" :: Maybe (TotalRunningHours), "CoverageHoursPercentage" :: Maybe (CoverageHoursPercentage) }
 ```
 
 <p>How long a running instance either used a reservation or was On-Demand.</p>
@@ -201,7 +201,7 @@ Constructs CoverageHours from required parameters
 #### `newCoverageHours'`
 
 ``` purescript
-newCoverageHours' :: ({ "OnDemandHours" :: NullOrUndefined (OnDemandHours), "ReservedHours" :: NullOrUndefined (ReservedHours), "TotalRunningHours" :: NullOrUndefined (TotalRunningHours), "CoverageHoursPercentage" :: NullOrUndefined (CoverageHoursPercentage) } -> { "OnDemandHours" :: NullOrUndefined (OnDemandHours), "ReservedHours" :: NullOrUndefined (ReservedHours), "TotalRunningHours" :: NullOrUndefined (TotalRunningHours), "CoverageHoursPercentage" :: NullOrUndefined (CoverageHoursPercentage) }) -> CoverageHours
+newCoverageHours' :: ({ "OnDemandHours" :: Maybe (OnDemandHours), "ReservedHours" :: Maybe (ReservedHours), "TotalRunningHours" :: Maybe (TotalRunningHours), "CoverageHoursPercentage" :: Maybe (CoverageHoursPercentage) } -> { "OnDemandHours" :: Maybe (OnDemandHours), "ReservedHours" :: Maybe (ReservedHours), "TotalRunningHours" :: Maybe (TotalRunningHours), "CoverageHoursPercentage" :: Maybe (CoverageHoursPercentage) }) -> CoverageHours
 ```
 
 Constructs CoverageHours's fields from required parameters
@@ -242,7 +242,7 @@ Encode CoveragesByTime
 
 ``` purescript
 newtype DataUnavailableException
-  = DataUnavailableException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = DataUnavailableException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The requested data is unavailable.</p>
@@ -267,7 +267,7 @@ Constructs DataUnavailableException from required parameters
 #### `newDataUnavailableException'`
 
 ``` purescript
-newDataUnavailableException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> DataUnavailableException
+newDataUnavailableException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> DataUnavailableException
 ```
 
 Constructs DataUnavailableException's fields from required parameters
@@ -326,7 +326,7 @@ Encode Dimension
 
 ``` purescript
 newtype DimensionValues
-  = DimensionValues { "Key" :: NullOrUndefined (Dimension), "Values" :: NullOrUndefined (Values) }
+  = DimensionValues { "Key" :: Maybe (Dimension), "Values" :: Maybe (Values) }
 ```
 
 <p>The metadata that you can use to filter and group your results. You can use <code>GetDimensionValues</code> to find specific values.</p>
@@ -351,7 +351,7 @@ Constructs DimensionValues from required parameters
 #### `newDimensionValues'`
 
 ``` purescript
-newDimensionValues' :: ({ "Key" :: NullOrUndefined (Dimension), "Values" :: NullOrUndefined (Values) } -> { "Key" :: NullOrUndefined (Dimension), "Values" :: NullOrUndefined (Values) }) -> DimensionValues
+newDimensionValues' :: ({ "Key" :: Maybe (Dimension), "Values" :: Maybe (Values) } -> { "Key" :: Maybe (Dimension), "Values" :: Maybe (Values) }) -> DimensionValues
 ```
 
 Constructs DimensionValues's fields from required parameters
@@ -360,7 +360,7 @@ Constructs DimensionValues's fields from required parameters
 
 ``` purescript
 newtype DimensionValuesWithAttributes
-  = DimensionValuesWithAttributes { "Value" :: NullOrUndefined (Value), "Attributes" :: NullOrUndefined (Attributes) }
+  = DimensionValuesWithAttributes { "Value" :: Maybe (Value), "Attributes" :: Maybe (Attributes) }
 ```
 
 <p>The metadata of a specific type that you can use to filter and group your results. You can use <code>GetDimensionValues</code> to find specific values.</p>
@@ -385,7 +385,7 @@ Constructs DimensionValuesWithAttributes from required parameters
 #### `newDimensionValuesWithAttributes'`
 
 ``` purescript
-newDimensionValuesWithAttributes' :: ({ "Value" :: NullOrUndefined (Value), "Attributes" :: NullOrUndefined (Attributes) } -> { "Value" :: NullOrUndefined (Value), "Attributes" :: NullOrUndefined (Attributes) }) -> DimensionValuesWithAttributes
+newDimensionValuesWithAttributes' :: ({ "Value" :: Maybe (Value), "Attributes" :: Maybe (Attributes) } -> { "Value" :: Maybe (Value), "Attributes" :: Maybe (Attributes) }) -> DimensionValuesWithAttributes
 ```
 
 Constructs DimensionValuesWithAttributes's fields from required parameters
@@ -458,7 +458,7 @@ Encode Estimated
 
 ``` purescript
 newtype Expression
-  = Expression { "Dimensions" :: NullOrUndefined (DimensionValues), "Tags" :: NullOrUndefined (TagValues) }
+  = Expression { "Dimensions" :: Maybe (DimensionValues), "Tags" :: Maybe (TagValues) }
 ```
 
 <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p> <ul> <li> <p>Simple dimension values - You can set the dimension name and values for the filters that you plan to use. For example, you can filter for <code>INSTANCE_TYPE==m4.xlarge OR INSTANCE_TYPE==c4.large</code>. The <code>Expression</code> for that looks like this.</p> <p> <code>{ "Dimensions": { "Key": "INSTANCE_TYPE", "Values": [ "m4.xlarge", “c4.large” ] } }</code> </p> <p>The list of dimension values are OR'd together to retrieve cost or usage data. You can create <code>Expression</code> and <code>DimensionValues</code> objects using either <code>with*</code> methods or <code>set*</code> methods in multiple lines. </p> </li> <li> <p>Compound dimension values with logical operations - You can use multiple <code>Expression</code> types and the logical operators <code>AND/OR/NOT</code> to create a list of one or more <code>Expression</code> objects. This allows you to filter on more advanced options. For example, you can filter on <code>((INSTANCE_TYPE == m4.large OR INSTANCE_TYPE == m3.large) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer)</code>. The <code>Expression</code> for that looks like this.</p> <p> <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "INSTANCE_TYPE", "Values": [ "m4.x.large", "c4.large" ] }}, {"Tag": { "Key": "TagName", "Values": ["Value1"] } } ]}, {"Not": {"dimensions": { "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] } </code> </p> <note> <p>Because each <code>Expression</code> can have only one operator, the service returns an error if more than one is specified. The following example shows an Expression object that will create an error.</p> </note> <p> <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE", "Values": [ "DataTransfer" ] } } </code> </p> </li> </ul>
@@ -483,7 +483,7 @@ Constructs Expression from required parameters
 #### `newExpression'`
 
 ``` purescript
-newExpression' :: ({ "Dimensions" :: NullOrUndefined (DimensionValues), "Tags" :: NullOrUndefined (TagValues) } -> { "Dimensions" :: NullOrUndefined (DimensionValues), "Tags" :: NullOrUndefined (TagValues) }) -> Expression
+newExpression' :: ({ "Dimensions" :: Maybe (DimensionValues), "Tags" :: Maybe (TagValues) } -> { "Dimensions" :: Maybe (DimensionValues), "Tags" :: Maybe (TagValues) }) -> Expression
 ```
 
 Constructs Expression's fields from required parameters
@@ -508,7 +508,7 @@ Encode Expressions
 
 ``` purescript
 newtype GetCostAndUsageRequest
-  = GetCostAndUsageRequest { "TimePeriod" :: NullOrUndefined (DateInterval), "Granularity" :: NullOrUndefined (Granularity), "Filter" :: NullOrUndefined (Expression), "Metrics" :: NullOrUndefined (MetricNames), "GroupBy" :: NullOrUndefined (GroupDefinitions), "NextPageToken" :: NullOrUndefined (NextPageToken) }
+  = GetCostAndUsageRequest { "TimePeriod" :: Maybe (DateInterval), "Granularity" :: Maybe (Granularity), "Filter" :: Maybe (Expression), "Metrics" :: Maybe (MetricNames), "GroupBy" :: Maybe (GroupDefinitions), "NextPageToken" :: Maybe (NextPageToken) }
 ```
 
 ##### Instances
@@ -531,7 +531,7 @@ Constructs GetCostAndUsageRequest from required parameters
 #### `newGetCostAndUsageRequest'`
 
 ``` purescript
-newGetCostAndUsageRequest' :: ({ "TimePeriod" :: NullOrUndefined (DateInterval), "Granularity" :: NullOrUndefined (Granularity), "Filter" :: NullOrUndefined (Expression), "Metrics" :: NullOrUndefined (MetricNames), "GroupBy" :: NullOrUndefined (GroupDefinitions), "NextPageToken" :: NullOrUndefined (NextPageToken) } -> { "TimePeriod" :: NullOrUndefined (DateInterval), "Granularity" :: NullOrUndefined (Granularity), "Filter" :: NullOrUndefined (Expression), "Metrics" :: NullOrUndefined (MetricNames), "GroupBy" :: NullOrUndefined (GroupDefinitions), "NextPageToken" :: NullOrUndefined (NextPageToken) }) -> GetCostAndUsageRequest
+newGetCostAndUsageRequest' :: ({ "TimePeriod" :: Maybe (DateInterval), "Granularity" :: Maybe (Granularity), "Filter" :: Maybe (Expression), "Metrics" :: Maybe (MetricNames), "GroupBy" :: Maybe (GroupDefinitions), "NextPageToken" :: Maybe (NextPageToken) } -> { "TimePeriod" :: Maybe (DateInterval), "Granularity" :: Maybe (Granularity), "Filter" :: Maybe (Expression), "Metrics" :: Maybe (MetricNames), "GroupBy" :: Maybe (GroupDefinitions), "NextPageToken" :: Maybe (NextPageToken) }) -> GetCostAndUsageRequest
 ```
 
 Constructs GetCostAndUsageRequest's fields from required parameters
@@ -540,7 +540,7 @@ Constructs GetCostAndUsageRequest's fields from required parameters
 
 ``` purescript
 newtype GetCostAndUsageResponse
-  = GetCostAndUsageResponse { "NextPageToken" :: NullOrUndefined (NextPageToken), "GroupDefinitions" :: NullOrUndefined (GroupDefinitions), "ResultsByTime" :: NullOrUndefined (ResultsByTime) }
+  = GetCostAndUsageResponse { "NextPageToken" :: Maybe (NextPageToken), "GroupDefinitions" :: Maybe (GroupDefinitions), "ResultsByTime" :: Maybe (ResultsByTime) }
 ```
 
 ##### Instances
@@ -563,7 +563,7 @@ Constructs GetCostAndUsageResponse from required parameters
 #### `newGetCostAndUsageResponse'`
 
 ``` purescript
-newGetCostAndUsageResponse' :: ({ "NextPageToken" :: NullOrUndefined (NextPageToken), "GroupDefinitions" :: NullOrUndefined (GroupDefinitions), "ResultsByTime" :: NullOrUndefined (ResultsByTime) } -> { "NextPageToken" :: NullOrUndefined (NextPageToken), "GroupDefinitions" :: NullOrUndefined (GroupDefinitions), "ResultsByTime" :: NullOrUndefined (ResultsByTime) }) -> GetCostAndUsageResponse
+newGetCostAndUsageResponse' :: ({ "NextPageToken" :: Maybe (NextPageToken), "GroupDefinitions" :: Maybe (GroupDefinitions), "ResultsByTime" :: Maybe (ResultsByTime) } -> { "NextPageToken" :: Maybe (NextPageToken), "GroupDefinitions" :: Maybe (GroupDefinitions), "ResultsByTime" :: Maybe (ResultsByTime) }) -> GetCostAndUsageResponse
 ```
 
 Constructs GetCostAndUsageResponse's fields from required parameters
@@ -572,7 +572,7 @@ Constructs GetCostAndUsageResponse's fields from required parameters
 
 ``` purescript
 newtype GetDimensionValuesRequest
-  = GetDimensionValuesRequest { "SearchString" :: NullOrUndefined (SearchString), "TimePeriod" :: DateInterval, "Dimension" :: Dimension, "Context" :: NullOrUndefined (Context), "NextPageToken" :: NullOrUndefined (NextPageToken) }
+  = GetDimensionValuesRequest { "SearchString" :: Maybe (SearchString), "TimePeriod" :: DateInterval, "Dimension" :: Dimension, "Context" :: Maybe (Context), "NextPageToken" :: Maybe (NextPageToken) }
 ```
 
 ##### Instances
@@ -595,7 +595,7 @@ Constructs GetDimensionValuesRequest from required parameters
 #### `newGetDimensionValuesRequest'`
 
 ``` purescript
-newGetDimensionValuesRequest' :: Dimension -> DateInterval -> ({ "SearchString" :: NullOrUndefined (SearchString), "TimePeriod" :: DateInterval, "Dimension" :: Dimension, "Context" :: NullOrUndefined (Context), "NextPageToken" :: NullOrUndefined (NextPageToken) } -> { "SearchString" :: NullOrUndefined (SearchString), "TimePeriod" :: DateInterval, "Dimension" :: Dimension, "Context" :: NullOrUndefined (Context), "NextPageToken" :: NullOrUndefined (NextPageToken) }) -> GetDimensionValuesRequest
+newGetDimensionValuesRequest' :: Dimension -> DateInterval -> ({ "SearchString" :: Maybe (SearchString), "TimePeriod" :: DateInterval, "Dimension" :: Dimension, "Context" :: Maybe (Context), "NextPageToken" :: Maybe (NextPageToken) } -> { "SearchString" :: Maybe (SearchString), "TimePeriod" :: DateInterval, "Dimension" :: Dimension, "Context" :: Maybe (Context), "NextPageToken" :: Maybe (NextPageToken) }) -> GetDimensionValuesRequest
 ```
 
 Constructs GetDimensionValuesRequest's fields from required parameters
@@ -604,7 +604,7 @@ Constructs GetDimensionValuesRequest's fields from required parameters
 
 ``` purescript
 newtype GetDimensionValuesResponse
-  = GetDimensionValuesResponse { "DimensionValues" :: DimensionValuesWithAttributesList, "ReturnSize" :: PageSize, "TotalSize" :: PageSize, "NextPageToken" :: NullOrUndefined (NextPageToken) }
+  = GetDimensionValuesResponse { "DimensionValues" :: DimensionValuesWithAttributesList, "ReturnSize" :: PageSize, "TotalSize" :: PageSize, "NextPageToken" :: Maybe (NextPageToken) }
 ```
 
 ##### Instances
@@ -627,7 +627,7 @@ Constructs GetDimensionValuesResponse from required parameters
 #### `newGetDimensionValuesResponse'`
 
 ``` purescript
-newGetDimensionValuesResponse' :: DimensionValuesWithAttributesList -> PageSize -> PageSize -> ({ "DimensionValues" :: DimensionValuesWithAttributesList, "ReturnSize" :: PageSize, "TotalSize" :: PageSize, "NextPageToken" :: NullOrUndefined (NextPageToken) } -> { "DimensionValues" :: DimensionValuesWithAttributesList, "ReturnSize" :: PageSize, "TotalSize" :: PageSize, "NextPageToken" :: NullOrUndefined (NextPageToken) }) -> GetDimensionValuesResponse
+newGetDimensionValuesResponse' :: DimensionValuesWithAttributesList -> PageSize -> PageSize -> ({ "DimensionValues" :: DimensionValuesWithAttributesList, "ReturnSize" :: PageSize, "TotalSize" :: PageSize, "NextPageToken" :: Maybe (NextPageToken) } -> { "DimensionValues" :: DimensionValuesWithAttributesList, "ReturnSize" :: PageSize, "TotalSize" :: PageSize, "NextPageToken" :: Maybe (NextPageToken) }) -> GetDimensionValuesResponse
 ```
 
 Constructs GetDimensionValuesResponse's fields from required parameters
@@ -636,7 +636,7 @@ Constructs GetDimensionValuesResponse's fields from required parameters
 
 ``` purescript
 newtype GetReservationCoverageRequest
-  = GetReservationCoverageRequest { "TimePeriod" :: DateInterval, "GroupBy" :: NullOrUndefined (GroupDefinitions), "Granularity" :: NullOrUndefined (Granularity), "Filter" :: NullOrUndefined (Expression), "NextPageToken" :: NullOrUndefined (NextPageToken) }
+  = GetReservationCoverageRequest { "TimePeriod" :: DateInterval, "GroupBy" :: Maybe (GroupDefinitions), "Granularity" :: Maybe (Granularity), "Filter" :: Maybe (Expression), "NextPageToken" :: Maybe (NextPageToken) }
 ```
 
 <p>You can query for how much of your instance usage was covered by a reservation.</p>
@@ -661,7 +661,7 @@ Constructs GetReservationCoverageRequest from required parameters
 #### `newGetReservationCoverageRequest'`
 
 ``` purescript
-newGetReservationCoverageRequest' :: DateInterval -> ({ "TimePeriod" :: DateInterval, "GroupBy" :: NullOrUndefined (GroupDefinitions), "Granularity" :: NullOrUndefined (Granularity), "Filter" :: NullOrUndefined (Expression), "NextPageToken" :: NullOrUndefined (NextPageToken) } -> { "TimePeriod" :: DateInterval, "GroupBy" :: NullOrUndefined (GroupDefinitions), "Granularity" :: NullOrUndefined (Granularity), "Filter" :: NullOrUndefined (Expression), "NextPageToken" :: NullOrUndefined (NextPageToken) }) -> GetReservationCoverageRequest
+newGetReservationCoverageRequest' :: DateInterval -> ({ "TimePeriod" :: DateInterval, "GroupBy" :: Maybe (GroupDefinitions), "Granularity" :: Maybe (Granularity), "Filter" :: Maybe (Expression), "NextPageToken" :: Maybe (NextPageToken) } -> { "TimePeriod" :: DateInterval, "GroupBy" :: Maybe (GroupDefinitions), "Granularity" :: Maybe (Granularity), "Filter" :: Maybe (Expression), "NextPageToken" :: Maybe (NextPageToken) }) -> GetReservationCoverageRequest
 ```
 
 Constructs GetReservationCoverageRequest's fields from required parameters
@@ -670,7 +670,7 @@ Constructs GetReservationCoverageRequest's fields from required parameters
 
 ``` purescript
 newtype GetReservationCoverageResponse
-  = GetReservationCoverageResponse { "CoveragesByTime" :: CoveragesByTime, "Total" :: NullOrUndefined (Coverage), "NextPageToken" :: NullOrUndefined (NextPageToken) }
+  = GetReservationCoverageResponse { "CoveragesByTime" :: CoveragesByTime, "Total" :: Maybe (Coverage), "NextPageToken" :: Maybe (NextPageToken) }
 ```
 
 ##### Instances
@@ -693,7 +693,7 @@ Constructs GetReservationCoverageResponse from required parameters
 #### `newGetReservationCoverageResponse'`
 
 ``` purescript
-newGetReservationCoverageResponse' :: CoveragesByTime -> ({ "CoveragesByTime" :: CoveragesByTime, "Total" :: NullOrUndefined (Coverage), "NextPageToken" :: NullOrUndefined (NextPageToken) } -> { "CoveragesByTime" :: CoveragesByTime, "Total" :: NullOrUndefined (Coverage), "NextPageToken" :: NullOrUndefined (NextPageToken) }) -> GetReservationCoverageResponse
+newGetReservationCoverageResponse' :: CoveragesByTime -> ({ "CoveragesByTime" :: CoveragesByTime, "Total" :: Maybe (Coverage), "NextPageToken" :: Maybe (NextPageToken) } -> { "CoveragesByTime" :: CoveragesByTime, "Total" :: Maybe (Coverage), "NextPageToken" :: Maybe (NextPageToken) }) -> GetReservationCoverageResponse
 ```
 
 Constructs GetReservationCoverageResponse's fields from required parameters
@@ -702,7 +702,7 @@ Constructs GetReservationCoverageResponse's fields from required parameters
 
 ``` purescript
 newtype GetReservationUtilizationRequest
-  = GetReservationUtilizationRequest { "TimePeriod" :: DateInterval, "GroupBy" :: NullOrUndefined (GroupDefinitions), "Granularity" :: NullOrUndefined (Granularity), "Filter" :: NullOrUndefined (Expression), "NextPageToken" :: NullOrUndefined (NextPageToken) }
+  = GetReservationUtilizationRequest { "TimePeriod" :: DateInterval, "GroupBy" :: Maybe (GroupDefinitions), "Granularity" :: Maybe (Granularity), "Filter" :: Maybe (Expression), "NextPageToken" :: Maybe (NextPageToken) }
 ```
 
 ##### Instances
@@ -725,7 +725,7 @@ Constructs GetReservationUtilizationRequest from required parameters
 #### `newGetReservationUtilizationRequest'`
 
 ``` purescript
-newGetReservationUtilizationRequest' :: DateInterval -> ({ "TimePeriod" :: DateInterval, "GroupBy" :: NullOrUndefined (GroupDefinitions), "Granularity" :: NullOrUndefined (Granularity), "Filter" :: NullOrUndefined (Expression), "NextPageToken" :: NullOrUndefined (NextPageToken) } -> { "TimePeriod" :: DateInterval, "GroupBy" :: NullOrUndefined (GroupDefinitions), "Granularity" :: NullOrUndefined (Granularity), "Filter" :: NullOrUndefined (Expression), "NextPageToken" :: NullOrUndefined (NextPageToken) }) -> GetReservationUtilizationRequest
+newGetReservationUtilizationRequest' :: DateInterval -> ({ "TimePeriod" :: DateInterval, "GroupBy" :: Maybe (GroupDefinitions), "Granularity" :: Maybe (Granularity), "Filter" :: Maybe (Expression), "NextPageToken" :: Maybe (NextPageToken) } -> { "TimePeriod" :: DateInterval, "GroupBy" :: Maybe (GroupDefinitions), "Granularity" :: Maybe (Granularity), "Filter" :: Maybe (Expression), "NextPageToken" :: Maybe (NextPageToken) }) -> GetReservationUtilizationRequest
 ```
 
 Constructs GetReservationUtilizationRequest's fields from required parameters
@@ -734,7 +734,7 @@ Constructs GetReservationUtilizationRequest's fields from required parameters
 
 ``` purescript
 newtype GetReservationUtilizationResponse
-  = GetReservationUtilizationResponse { "UtilizationsByTime" :: UtilizationsByTime, "Total" :: NullOrUndefined (ReservationAggregates), "NextPageToken" :: NullOrUndefined (NextPageToken) }
+  = GetReservationUtilizationResponse { "UtilizationsByTime" :: UtilizationsByTime, "Total" :: Maybe (ReservationAggregates), "NextPageToken" :: Maybe (NextPageToken) }
 ```
 
 ##### Instances
@@ -757,7 +757,7 @@ Constructs GetReservationUtilizationResponse from required parameters
 #### `newGetReservationUtilizationResponse'`
 
 ``` purescript
-newGetReservationUtilizationResponse' :: UtilizationsByTime -> ({ "UtilizationsByTime" :: UtilizationsByTime, "Total" :: NullOrUndefined (ReservationAggregates), "NextPageToken" :: NullOrUndefined (NextPageToken) } -> { "UtilizationsByTime" :: UtilizationsByTime, "Total" :: NullOrUndefined (ReservationAggregates), "NextPageToken" :: NullOrUndefined (NextPageToken) }) -> GetReservationUtilizationResponse
+newGetReservationUtilizationResponse' :: UtilizationsByTime -> ({ "UtilizationsByTime" :: UtilizationsByTime, "Total" :: Maybe (ReservationAggregates), "NextPageToken" :: Maybe (NextPageToken) } -> { "UtilizationsByTime" :: UtilizationsByTime, "Total" :: Maybe (ReservationAggregates), "NextPageToken" :: Maybe (NextPageToken) }) -> GetReservationUtilizationResponse
 ```
 
 Constructs GetReservationUtilizationResponse's fields from required parameters
@@ -766,7 +766,7 @@ Constructs GetReservationUtilizationResponse's fields from required parameters
 
 ``` purescript
 newtype GetTagsRequest
-  = GetTagsRequest { "SearchString" :: NullOrUndefined (SearchString), "TimePeriod" :: DateInterval, "TagKey" :: NullOrUndefined (TagKey), "NextPageToken" :: NullOrUndefined (NextPageToken) }
+  = GetTagsRequest { "SearchString" :: Maybe (SearchString), "TimePeriod" :: DateInterval, "TagKey" :: Maybe (TagKey), "NextPageToken" :: Maybe (NextPageToken) }
 ```
 
 ##### Instances
@@ -789,7 +789,7 @@ Constructs GetTagsRequest from required parameters
 #### `newGetTagsRequest'`
 
 ``` purescript
-newGetTagsRequest' :: DateInterval -> ({ "SearchString" :: NullOrUndefined (SearchString), "TimePeriod" :: DateInterval, "TagKey" :: NullOrUndefined (TagKey), "NextPageToken" :: NullOrUndefined (NextPageToken) } -> { "SearchString" :: NullOrUndefined (SearchString), "TimePeriod" :: DateInterval, "TagKey" :: NullOrUndefined (TagKey), "NextPageToken" :: NullOrUndefined (NextPageToken) }) -> GetTagsRequest
+newGetTagsRequest' :: DateInterval -> ({ "SearchString" :: Maybe (SearchString), "TimePeriod" :: DateInterval, "TagKey" :: Maybe (TagKey), "NextPageToken" :: Maybe (NextPageToken) } -> { "SearchString" :: Maybe (SearchString), "TimePeriod" :: DateInterval, "TagKey" :: Maybe (TagKey), "NextPageToken" :: Maybe (NextPageToken) }) -> GetTagsRequest
 ```
 
 Constructs GetTagsRequest's fields from required parameters
@@ -798,7 +798,7 @@ Constructs GetTagsRequest's fields from required parameters
 
 ``` purescript
 newtype GetTagsResponse
-  = GetTagsResponse { "NextPageToken" :: NullOrUndefined (NextPageToken), "Tags" :: TagList, "ReturnSize" :: PageSize, "TotalSize" :: PageSize }
+  = GetTagsResponse { "NextPageToken" :: Maybe (NextPageToken), "Tags" :: TagList, "ReturnSize" :: PageSize, "TotalSize" :: PageSize }
 ```
 
 ##### Instances
@@ -821,7 +821,7 @@ Constructs GetTagsResponse from required parameters
 #### `newGetTagsResponse'`
 
 ``` purescript
-newGetTagsResponse' :: PageSize -> TagList -> PageSize -> ({ "NextPageToken" :: NullOrUndefined (NextPageToken), "Tags" :: TagList, "ReturnSize" :: PageSize, "TotalSize" :: PageSize } -> { "NextPageToken" :: NullOrUndefined (NextPageToken), "Tags" :: TagList, "ReturnSize" :: PageSize, "TotalSize" :: PageSize }) -> GetTagsResponse
+newGetTagsResponse' :: PageSize -> TagList -> PageSize -> ({ "NextPageToken" :: Maybe (NextPageToken), "Tags" :: TagList, "ReturnSize" :: PageSize, "TotalSize" :: PageSize } -> { "NextPageToken" :: Maybe (NextPageToken), "Tags" :: TagList, "ReturnSize" :: PageSize, "TotalSize" :: PageSize }) -> GetTagsResponse
 ```
 
 Constructs GetTagsResponse's fields from required parameters
@@ -846,7 +846,7 @@ Encode Granularity
 
 ``` purescript
 newtype Group
-  = Group { "Keys" :: NullOrUndefined (Keys), "Metrics" :: NullOrUndefined (Metrics) }
+  = Group { "Keys" :: Maybe (Keys), "Metrics" :: Maybe (Metrics) }
 ```
 
 <p>One level of grouped data within the results.</p>
@@ -871,7 +871,7 @@ Constructs Group from required parameters
 #### `newGroup'`
 
 ``` purescript
-newGroup' :: ({ "Keys" :: NullOrUndefined (Keys), "Metrics" :: NullOrUndefined (Metrics) } -> { "Keys" :: NullOrUndefined (Keys), "Metrics" :: NullOrUndefined (Metrics) }) -> Group
+newGroup' :: ({ "Keys" :: Maybe (Keys), "Metrics" :: Maybe (Metrics) } -> { "Keys" :: Maybe (Keys), "Metrics" :: Maybe (Metrics) }) -> Group
 ```
 
 Constructs Group's fields from required parameters
@@ -880,7 +880,7 @@ Constructs Group's fields from required parameters
 
 ``` purescript
 newtype GroupDefinition
-  = GroupDefinition { "Type" :: NullOrUndefined (GroupDefinitionType), "Key" :: NullOrUndefined (GroupDefinitionKey) }
+  = GroupDefinition { "Type" :: Maybe (GroupDefinitionType), "Key" :: Maybe (GroupDefinitionKey) }
 ```
 
 <p>Represents a group when you specify a group by criteria, or in the response to a query with a specific grouping.</p>
@@ -905,7 +905,7 @@ Constructs GroupDefinition from required parameters
 #### `newGroupDefinition'`
 
 ``` purescript
-newGroupDefinition' :: ({ "Type" :: NullOrUndefined (GroupDefinitionType), "Key" :: NullOrUndefined (GroupDefinitionKey) } -> { "Type" :: NullOrUndefined (GroupDefinitionType), "Key" :: NullOrUndefined (GroupDefinitionKey) }) -> GroupDefinition
+newGroupDefinition' :: ({ "Type" :: Maybe (GroupDefinitionType), "Key" :: Maybe (GroupDefinitionKey) } -> { "Type" :: Maybe (GroupDefinitionType), "Key" :: Maybe (GroupDefinitionKey) }) -> GroupDefinition
 ```
 
 Constructs GroupDefinition's fields from required parameters
@@ -978,7 +978,7 @@ Encode Groups
 
 ``` purescript
 newtype InvalidNextTokenException
-  = InvalidNextTokenException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = InvalidNextTokenException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The pagination token is invalid. Try again without a pagination token.</p>
@@ -1003,7 +1003,7 @@ Constructs InvalidNextTokenException from required parameters
 #### `newInvalidNextTokenException'`
 
 ``` purescript
-newInvalidNextTokenException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> InvalidNextTokenException
+newInvalidNextTokenException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> InvalidNextTokenException
 ```
 
 Constructs InvalidNextTokenException's fields from required parameters
@@ -1044,7 +1044,7 @@ Encode Keys
 
 ``` purescript
 newtype LimitExceededException
-  = LimitExceededException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = LimitExceededException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>You made too many calls in a short period of time. Try again later.</p>
@@ -1069,7 +1069,7 @@ Constructs LimitExceededException from required parameters
 #### `newLimitExceededException'`
 
 ``` purescript
-newLimitExceededException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> LimitExceededException
+newLimitExceededException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> LimitExceededException
 ```
 
 Constructs LimitExceededException's fields from required parameters
@@ -1142,7 +1142,7 @@ Encode MetricUnit
 
 ``` purescript
 newtype MetricValue
-  = MetricValue { "Amount" :: NullOrUndefined (MetricAmount), "Unit" :: NullOrUndefined (MetricUnit) }
+  = MetricValue { "Amount" :: Maybe (MetricAmount), "Unit" :: Maybe (MetricUnit) }
 ```
 
 <p>The aggregated value for a metric.</p>
@@ -1167,7 +1167,7 @@ Constructs MetricValue from required parameters
 #### `newMetricValue'`
 
 ``` purescript
-newMetricValue' :: ({ "Amount" :: NullOrUndefined (MetricAmount), "Unit" :: NullOrUndefined (MetricUnit) } -> { "Amount" :: NullOrUndefined (MetricAmount), "Unit" :: NullOrUndefined (MetricUnit) }) -> MetricValue
+newMetricValue' :: ({ "Amount" :: Maybe (MetricAmount), "Unit" :: Maybe (MetricUnit) } -> { "Amount" :: Maybe (MetricAmount), "Unit" :: Maybe (MetricUnit) }) -> MetricValue
 ```
 
 Constructs MetricValue's fields from required parameters
@@ -1256,7 +1256,7 @@ Encode PurchasedHours
 
 ``` purescript
 newtype ReservationAggregates
-  = ReservationAggregates { "UtilizationPercentage" :: NullOrUndefined (UtilizationPercentage), "PurchasedHours" :: NullOrUndefined (PurchasedHours), "TotalActualHours" :: NullOrUndefined (TotalActualHours), "UnusedHours" :: NullOrUndefined (UnusedHours) }
+  = ReservationAggregates { "UtilizationPercentage" :: Maybe (UtilizationPercentage), "PurchasedHours" :: Maybe (PurchasedHours), "TotalActualHours" :: Maybe (TotalActualHours), "UnusedHours" :: Maybe (UnusedHours) }
 ```
 
 <p>The aggregated numbers for your RI usage.</p>
@@ -1281,7 +1281,7 @@ Constructs ReservationAggregates from required parameters
 #### `newReservationAggregates'`
 
 ``` purescript
-newReservationAggregates' :: ({ "UtilizationPercentage" :: NullOrUndefined (UtilizationPercentage), "PurchasedHours" :: NullOrUndefined (PurchasedHours), "TotalActualHours" :: NullOrUndefined (TotalActualHours), "UnusedHours" :: NullOrUndefined (UnusedHours) } -> { "UtilizationPercentage" :: NullOrUndefined (UtilizationPercentage), "PurchasedHours" :: NullOrUndefined (PurchasedHours), "TotalActualHours" :: NullOrUndefined (TotalActualHours), "UnusedHours" :: NullOrUndefined (UnusedHours) }) -> ReservationAggregates
+newReservationAggregates' :: ({ "UtilizationPercentage" :: Maybe (UtilizationPercentage), "PurchasedHours" :: Maybe (PurchasedHours), "TotalActualHours" :: Maybe (TotalActualHours), "UnusedHours" :: Maybe (UnusedHours) } -> { "UtilizationPercentage" :: Maybe (UtilizationPercentage), "PurchasedHours" :: Maybe (PurchasedHours), "TotalActualHours" :: Maybe (TotalActualHours), "UnusedHours" :: Maybe (UnusedHours) }) -> ReservationAggregates
 ```
 
 Constructs ReservationAggregates's fields from required parameters
@@ -1290,7 +1290,7 @@ Constructs ReservationAggregates's fields from required parameters
 
 ``` purescript
 newtype ReservationCoverageGroup
-  = ReservationCoverageGroup { "Attributes" :: NullOrUndefined (Attributes), "Coverage" :: NullOrUndefined (Coverage) }
+  = ReservationCoverageGroup { "Attributes" :: Maybe (Attributes), "Coverage" :: Maybe (Coverage) }
 ```
 
 <p>A group of reservations that share a set of attributes.</p>
@@ -1315,7 +1315,7 @@ Constructs ReservationCoverageGroup from required parameters
 #### `newReservationCoverageGroup'`
 
 ``` purescript
-newReservationCoverageGroup' :: ({ "Attributes" :: NullOrUndefined (Attributes), "Coverage" :: NullOrUndefined (Coverage) } -> { "Attributes" :: NullOrUndefined (Attributes), "Coverage" :: NullOrUndefined (Coverage) }) -> ReservationCoverageGroup
+newReservationCoverageGroup' :: ({ "Attributes" :: Maybe (Attributes), "Coverage" :: Maybe (Coverage) } -> { "Attributes" :: Maybe (Attributes), "Coverage" :: Maybe (Coverage) }) -> ReservationCoverageGroup
 ```
 
 Constructs ReservationCoverageGroup's fields from required parameters
@@ -1372,7 +1372,7 @@ Encode ReservationGroupValue
 
 ``` purescript
 newtype ReservationUtilizationGroup
-  = ReservationUtilizationGroup { "Key" :: NullOrUndefined (ReservationGroupKey), "Value" :: NullOrUndefined (ReservationGroupValue), "Attributes" :: NullOrUndefined (Attributes), "Utilization" :: NullOrUndefined (ReservationAggregates) }
+  = ReservationUtilizationGroup { "Key" :: Maybe (ReservationGroupKey), "Value" :: Maybe (ReservationGroupValue), "Attributes" :: Maybe (Attributes), "Utilization" :: Maybe (ReservationAggregates) }
 ```
 
 <p>A group of RIs that share a set of attributes.</p>
@@ -1397,7 +1397,7 @@ Constructs ReservationUtilizationGroup from required parameters
 #### `newReservationUtilizationGroup'`
 
 ``` purescript
-newReservationUtilizationGroup' :: ({ "Key" :: NullOrUndefined (ReservationGroupKey), "Value" :: NullOrUndefined (ReservationGroupValue), "Attributes" :: NullOrUndefined (Attributes), "Utilization" :: NullOrUndefined (ReservationAggregates) } -> { "Key" :: NullOrUndefined (ReservationGroupKey), "Value" :: NullOrUndefined (ReservationGroupValue), "Attributes" :: NullOrUndefined (Attributes), "Utilization" :: NullOrUndefined (ReservationAggregates) }) -> ReservationUtilizationGroup
+newReservationUtilizationGroup' :: ({ "Key" :: Maybe (ReservationGroupKey), "Value" :: Maybe (ReservationGroupValue), "Attributes" :: Maybe (Attributes), "Utilization" :: Maybe (ReservationAggregates) } -> { "Key" :: Maybe (ReservationGroupKey), "Value" :: Maybe (ReservationGroupValue), "Attributes" :: Maybe (Attributes), "Utilization" :: Maybe (ReservationAggregates) }) -> ReservationUtilizationGroup
 ```
 
 Constructs ReservationUtilizationGroup's fields from required parameters
@@ -1438,7 +1438,7 @@ Encode ReservedHours
 
 ``` purescript
 newtype ResultByTime
-  = ResultByTime { "TimePeriod" :: NullOrUndefined (DateInterval), "Total" :: NullOrUndefined (Metrics), "Groups" :: NullOrUndefined (Groups), "Estimated" :: NullOrUndefined (Estimated) }
+  = ResultByTime { "TimePeriod" :: Maybe (DateInterval), "Total" :: Maybe (Metrics), "Groups" :: Maybe (Groups), "Estimated" :: Maybe (Estimated) }
 ```
 
 <p>The result that is associated with a time period.</p>
@@ -1463,7 +1463,7 @@ Constructs ResultByTime from required parameters
 #### `newResultByTime'`
 
 ``` purescript
-newResultByTime' :: ({ "TimePeriod" :: NullOrUndefined (DateInterval), "Total" :: NullOrUndefined (Metrics), "Groups" :: NullOrUndefined (Groups), "Estimated" :: NullOrUndefined (Estimated) } -> { "TimePeriod" :: NullOrUndefined (DateInterval), "Total" :: NullOrUndefined (Metrics), "Groups" :: NullOrUndefined (Groups), "Estimated" :: NullOrUndefined (Estimated) }) -> ResultByTime
+newResultByTime' :: ({ "TimePeriod" :: Maybe (DateInterval), "Total" :: Maybe (Metrics), "Groups" :: Maybe (Groups), "Estimated" :: Maybe (Estimated) } -> { "TimePeriod" :: Maybe (DateInterval), "Total" :: Maybe (Metrics), "Groups" :: Maybe (Groups), "Estimated" :: Maybe (Estimated) }) -> ResultByTime
 ```
 
 Constructs ResultByTime's fields from required parameters
@@ -1536,7 +1536,7 @@ Encode TagList
 
 ``` purescript
 newtype TagValues
-  = TagValues { "Key" :: NullOrUndefined (TagKey), "Values" :: NullOrUndefined (Values) }
+  = TagValues { "Key" :: Maybe (TagKey), "Values" :: Maybe (Values) }
 ```
 
 <p>The values that are available for a tag.</p>
@@ -1561,7 +1561,7 @@ Constructs TagValues from required parameters
 #### `newTagValues'`
 
 ``` purescript
-newTagValues' :: ({ "Key" :: NullOrUndefined (TagKey), "Values" :: NullOrUndefined (Values) } -> { "Key" :: NullOrUndefined (TagKey), "Values" :: NullOrUndefined (Values) }) -> TagValues
+newTagValues' :: ({ "Key" :: Maybe (TagKey), "Values" :: Maybe (Values) } -> { "Key" :: Maybe (TagKey), "Values" :: Maybe (Values) }) -> TagValues
 ```
 
 Constructs TagValues's fields from required parameters
@@ -1618,7 +1618,7 @@ Encode UnusedHours
 
 ``` purescript
 newtype UtilizationByTime
-  = UtilizationByTime { "TimePeriod" :: NullOrUndefined (DateInterval), "Groups" :: NullOrUndefined (ReservationUtilizationGroups), "Total" :: NullOrUndefined (ReservationAggregates) }
+  = UtilizationByTime { "TimePeriod" :: Maybe (DateInterval), "Groups" :: Maybe (ReservationUtilizationGroups), "Total" :: Maybe (ReservationAggregates) }
 ```
 
 <p>The amount of utilization, in hours.</p>
@@ -1643,7 +1643,7 @@ Constructs UtilizationByTime from required parameters
 #### `newUtilizationByTime'`
 
 ``` purescript
-newUtilizationByTime' :: ({ "TimePeriod" :: NullOrUndefined (DateInterval), "Groups" :: NullOrUndefined (ReservationUtilizationGroups), "Total" :: NullOrUndefined (ReservationAggregates) } -> { "TimePeriod" :: NullOrUndefined (DateInterval), "Groups" :: NullOrUndefined (ReservationUtilizationGroups), "Total" :: NullOrUndefined (ReservationAggregates) }) -> UtilizationByTime
+newUtilizationByTime' :: ({ "TimePeriod" :: Maybe (DateInterval), "Groups" :: Maybe (ReservationUtilizationGroups), "Total" :: Maybe (ReservationAggregates) } -> { "TimePeriod" :: Maybe (DateInterval), "Groups" :: Maybe (ReservationUtilizationGroups), "Total" :: Maybe (ReservationAggregates) }) -> UtilizationByTime
 ```
 
 Constructs UtilizationByTime's fields from required parameters
